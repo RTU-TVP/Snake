@@ -25,7 +25,7 @@ public class MapGeneration : MonoBehaviour
         {
             for (int y = 0; y < _height; y++)
             {
-                GameObject tile = Instantiate(_tilePrefab, new Vector3(x, y, 0), Quaternion.identity);
+                GameObject tile = Instantiate(_tilePrefab, new Vector3(x, y, 1), Quaternion.identity);
 
                 Sprite randomSprite = _sprites[Random.Range(0, _sprites.Length)];
                 tile.GetComponent<SpriteRenderer>().sprite = randomSprite;
