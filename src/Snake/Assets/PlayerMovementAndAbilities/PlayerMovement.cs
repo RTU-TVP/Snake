@@ -77,6 +77,10 @@ public class PlayerMovement : MonoBehaviour
             playerCellCoordinates.x = Convert.ToInt32(playerTransform.position.x - 0.5f);
             playerCellCoordinates.y = Convert.ToInt32(playerTransform.position.y - 0.5f);
         }
+        if(playerCellCoordinates != null)
+        {
+            PlayerCellCoordinates.SetPlayerCellCoordinates(playerCellCoordinates);
+        }
     }
     void ChooseNextDirection()
     {
@@ -184,10 +188,6 @@ public class PlayerMovement : MonoBehaviour
         }
         realPlayerSpeed = theoreticalPlayerSpeed;
         yield break;
-    }
-    public Vector2 SendPlayerCoordinates()
-    {
-        return playerCellCoordinates;
     }
 }
 public enum Direction
