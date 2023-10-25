@@ -170,10 +170,10 @@ MonoBehaviour:
   objectToSpawn: {fileID: 9135542938466078513, guid: aa277db58e17c434cb83aaef40d51656, type: 3}
   spawnInterval: 2.5
   despawnDelay: 8
-  _minX: 0
-  _maxX: 15
-  _minY: 0.25
-  _maxY: 6.5
+  _minX: 0.5
+  _maxX: 15.5
+  _minY: 0.5
+  _maxY: 7.5
 --- !u!1 &2003153757
 GameObject:
   m_ObjectHideFlags: 0
@@ -298,9 +298,9 @@ MonoBehaviour:
   _width: 16
   _height: 8
   _minXPosition: 0
-  _maxXPosition: 15
-  _minYPosition: 0.25
-  _maxYPosition: 6.5
+  _maxXPosition: 0
+  _minYPosition: 0
+  _maxYPosition: 0
   _tilePrefab: {fileID: 9135542938466078513, guid: 00d6b79a284f9494ba15b8e62d02de9a, type: 3}
   _specialObjectPrefab: {fileID: 9135542938466078513, guid: 9d924ce9cd924324baaf9f3d9bbfc712, type: 3}
   _sprites:
@@ -314,7 +314,7 @@ Transform:
   m_GameObject: {fileID: 2014874516}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.5, y: -0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

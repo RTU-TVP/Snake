@@ -37,10 +37,12 @@ public class BlockGenerator : MonoBehaviour
     private void SpawnObject()
     {
         Vector3 spawnPosition = GetRandomGroundPosition();
+        spawnPosition = new Vector3(Mathf.RoundToInt(spawnPosition.x) + 0.5f, Mathf.RoundToInt(spawnPosition.y) + 0.5f, spawnPosition.z);
 
         while (IsSpawnPositionBlocked(spawnPosition))
         {
             spawnPosition = GetRandomGroundPosition();
+            spawnPosition = new Vector3(Mathf.RoundToInt(spawnPosition.x), Mathf.RoundToInt(spawnPosition.y), spawnPosition.z);
         }
 
         GameObject spawnedObject = Instantiate(objectToSpawn, spawnPosition, Quaternion.identity);
