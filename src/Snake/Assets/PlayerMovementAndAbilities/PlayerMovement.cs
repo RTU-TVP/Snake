@@ -72,6 +72,11 @@ public class PlayerMovement : MonoBehaviour
         {
             realPlayerSpeed = theoreticalPlayerSpeed;
         }
+        if (isPlayerInCellCenter)
+        {
+            playerCellCoordinates.x = Convert.ToInt32(playerTransform.position.x - 0.5f);
+            playerCellCoordinates.y = Convert.ToInt32(playerTransform.position.y - 0.5f);
+        }
     }
     void ChooseNextDirection()
     {
@@ -182,11 +187,6 @@ public class PlayerMovement : MonoBehaviour
     }
     public Vector2 SendPlayerCoordinates()
     {
-        if (isPlayerInCellCenter)
-        {
-            playerCellCoordinates.x = Convert.ToInt32(playerTransform.position.x - 0.5f);
-            playerCellCoordinates.y = Convert.ToInt32(playerTransform.position.y - 0.5f);
-        }
         return playerCellCoordinates;
     }
 }
