@@ -1,23 +1,34 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
 public class PathNode
 {
-    private Grid<PathNode> _grid;
-    private int _x, _y;
+    private CustomGrid<PathNode> _grid;
 
+    [field:SerializeField] public int X { get; private set; }
+    [field:SerializeField] public int Y { get; private set; }
     public int gCost, hCost, fCost;
-    public PathNode fromNode;
-    public PathNode(UnityEngine.Grid<PathNode> grid, int x, int y)
+    public bool isWalkable;
+    public PathNode FromNode;
+    
+    public PathNode(CustomGrid<PathNode> grid, int x, int y, bool isWalkable=true)
     {
         this._grid = grid;
-        this._x = x;
-        this._y = y;
+        this.X = x;
+        this.Y = y;
+        this.isWalkable = isWalkable;
     }
 
     public override string ToString()
     {
-        return _x + "," + _y;
+        return X + "," + Y;
+    }
+
+    public void CalculateFCost()
+    {
+        fCost = gCost + hCost;
     }
 }
