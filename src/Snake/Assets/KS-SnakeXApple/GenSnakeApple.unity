@@ -135,6 +135,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barrier (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 596916158764037828, guid: 12ce66c20c1eedb42abb1dffb5c4ea1b, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 4953890502244895862, guid: 12ce66c20c1eedb42abb1dffb5c4ea1b, type: 3}
       propertyPath: m_LocalScale.x
       value: 18.814054
@@ -195,6 +199,10 @@ PrefabInstance:
     - target: {fileID: 596916158764037828, guid: 12ce66c20c1eedb42abb1dffb5c4ea1b, type: 3}
       propertyPath: m_Name
       value: Barrier (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 596916158764037828, guid: 12ce66c20c1eedb42abb1dffb5c4ea1b, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4953890502244895862, guid: 12ce66c20c1eedb42abb1dffb5c4ea1b, type: 3}
       propertyPath: m_LocalScale.y
@@ -461,7 +469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25e9f71fb1e7e9c4bb7baa59027bf79e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToSpawn: {fileID: 596916158764037828, guid: 12ce66c20c1eedb42abb1dffb5c4ea1b, type: 3}
+  objectToSpawn: {fileID: 9135542938466078513, guid: aa277db58e17c434cb83aaef40d51656, type: 3}
   spawnInterval: 2.5
   despawnDelay: 8
   _minX: 0.5
@@ -484,6 +492,10 @@ PrefabInstance:
     - target: {fileID: 596916158764037828, guid: 12ce66c20c1eedb42abb1dffb5c4ea1b, type: 3}
       propertyPath: m_Name
       value: Barrier (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 596916158764037828, guid: 12ce66c20c1eedb42abb1dffb5c4ea1b, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4953890502244895862, guid: 12ce66c20c1eedb42abb1dffb5c4ea1b, type: 3}
       propertyPath: m_LocalScale.y
@@ -545,6 +557,10 @@ PrefabInstance:
     - target: {fileID: 596916158764037828, guid: 12ce66c20c1eedb42abb1dffb5c4ea1b, type: 3}
       propertyPath: m_Name
       value: Barrier
+      objectReference: {fileID: 0}
+    - target: {fileID: 596916158764037828, guid: 12ce66c20c1eedb42abb1dffb5c4ea1b, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4953890502244895862, guid: 12ce66c20c1eedb42abb1dffb5c4ea1b, type: 3}
       propertyPath: m_LocalScale.x
