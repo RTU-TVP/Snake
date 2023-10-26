@@ -9,15 +9,13 @@ public class SnakePart : MonoBehaviour
 {
     [SerializeField] private int _cellSize;
 
-    [SerializeField]
-    public PathNode _currentNode { get; private set; }
-    public static SnakePart Instance { get; private set; }
+    [field:SerializeField] public PathNode _currentNode { get; private set; }
+    [field:SerializeField] public PathNode _targetNode { get; private set; }
 
-    [SerializeField] private PathNode _targetNode;
-    
     [SerializeField] private float _speed;
     [SerializeField] private bool _isMoving;
     [SerializeField] private Vector3 _targetPosition;
+    [SerializeField] public SnakePart child;
     
     private CustomGrid<PathNode> _grid;
     
@@ -28,7 +26,8 @@ public class SnakePart : MonoBehaviour
         _cellSize = cellSize;
         _speed = speed;
         _grid = grid;
-
+        _targetPosition = new Vector3(_targetNode.X * _cellSize + _cellSize * 0.5f,
+            _targetNode.Y * _cellSize + _cellSize * 0.5f, 0);
         _grid.GetValue(_currentNode.X, _currentNode.Y).isWalkable = false;
         transform.position = new Vector3(_currentNode.X * _cellSize + _cellSize * 0.5f, _currentNode.Y * _cellSize + _cellSize * 0.5f, 0);
     }
@@ -36,6 +35,16 @@ public class SnakePart : MonoBehaviour
 
     public void SetTarget(PathNode target)
     {
+        _currentNode.isWalkable = true;
+        
+        _currentNode = _targetNode;        
+
+        if (child is not null)
+        {
+            child.SetTarget(_currentNode);
+            _currentNode.isWalkable = false;
+        }
+        
         _targetNode = target;
         _targetPosition = new Vector3(_targetNode.X * _cellSize + _cellSize * 0.5f,
             _targetNode.Y * _cellSize + _cellSize * 0.5f, 0);
@@ -44,12 +53,5 @@ public class SnakePart : MonoBehaviour
     public void UpdateMovement()
     {
         transform.position += (_targetPosition-transform.position).normalized * (_cellSize * _speed) * Time.deltaTime;
-    }
-
-    public void EndMove()
-    {
-        _currentNode.isWalkable = true;
-        _currentNode = _targetNode;
-        _currentNode.isWalkable = false;
     }
 }

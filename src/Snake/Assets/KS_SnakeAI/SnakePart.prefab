@@ -93,7 +93,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5135560178769372379}
-  - component: {fileID: 3633691590775283012}
   m_Layer: 0
   m_Name: SnakePart
   m_TagString: Untagged
@@ -117,26 +116,3 @@ Transform:
   - {fileID: 3160708977466058259}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3633691590775283012
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3611394809977644034}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38fadeb5f79b1c34cae5fcfd2fe70385, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _cellSize: 0
-  _targetNode:
-    <X>k__BackingField: 0
-    <Y>k__BackingField: 0
-    gCost: 0
-    hCost: 0
-    fCost: 0
-    isWalkable: 0
-  _speed: 0
-  _isMoving: 0
-  _targetPosition: {x: 0, y: 0, z: 0}

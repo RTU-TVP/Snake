@@ -248,15 +248,15 @@ MonoBehaviour:
   _height: 10
   _cellSize: 10
   _currentNode:
-    <X>k__BackingField: 1
+    <X>k__BackingField: 4
     <Y>k__BackingField: 0
     gCost: 0
     hCost: 0
     fCost: 0
     isWalkable: 0
   _targetNode:
-    <X>k__BackingField: 7
-    <Y>k__BackingField: 7
+    <X>k__BackingField: 4
+    <Y>k__BackingField: 4
     gCost: 0
     hCost: 0
     fCost: 0

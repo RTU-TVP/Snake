@@ -25,21 +25,45 @@ public class Snake : MonoBehaviour
     {
         _pathFinder = new PathFinder(_width, _height);
         transform.position = new Vector3(_currentNode.X * _cellSize + _cellSize * 0.5f, _currentNode.Y * _cellSize + _cellSize * 0.5f, 0);
-
-        for (int i = 1; i < 3; i++)
+        
+        FirstSnakePartCreate(1);
+        for (int i = 1; i < 4; i++)
         {
-            SnakePartCreate(i);   
+            SnakePartCreate(1);   
         }
     }
 
-    private void SnakePartCreate(int xAdd=0, int yAdd=0)
+    private void FirstSnakePartCreate(int xAdd=0, int yAdd=0)
     {
         GameObject snakePart = Instantiate(_snakePart);
         snakePart.AddComponent<SnakePart>();
         SnakePart part = snakePart.GetComponent<SnakePart>();
         part.Setter(_pathFinder.Grid,
             _pathFinder.Grid.GetValue(_currentNode.X - xAdd, _currentNode.Y-yAdd), _currentNode, _cellSize, _speed);
+        part._currentNode.isWalkable = true;
+        part._targetNode.isWalkable = false;
+        
         _snakeParts.Add(part);
+    }
+    private void SnakePartCreate(int xAdd=0, int yAdd=0)
+    {
+        GameObject snakePart = Instantiate(_snakePart);
+        snakePart.AddComponent<SnakePart>();
+        SnakePart part = snakePart.GetComponent<SnakePart>();
+        var x = (_snakeParts.Count-1);
+        var node = _snakeParts[x]._currentNode;
+        part.Setter(_pathFinder.Grid,
+            _pathFinder.Grid.GetValue(node.X - xAdd, node.Y-yAdd), node, _cellSize, _speed);
+        part._currentNode.isWalkable = true;
+        part._targetNode.isWalkable = false;
+        _snakeParts[x].child = part;
+        _snakeParts.Add(part);
+    }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {Print();
+        }
     }
 
     private void FixedUpdate()
@@ -49,7 +73,6 @@ public class Snake : MonoBehaviour
             if (!(_targetNode.X == _currentNode.X && _targetNode.Y  == _currentNode.Y))
             {
                 _nextNode = _pathFinder.FindStep(_currentNode.X, _currentNode.Y, _targetNode.X, _targetNode.Y);
-                UpdatePartsTarget();
                 _targetPosition = new Vector3(_nextNode.X * _cellSize + _cellSize * 0.5f,
                     _nextNode.Y * _cellSize + _cellSize * 0.5f, 0);
                 _isMoving = true;
@@ -62,6 +85,7 @@ public class Snake : MonoBehaviour
             if (new Vector3(Mathf.Round(transform.position.x*100)/100,Mathf.Round(transform.position.y*100)/100, 0) == _targetPosition)
             {
                 _currentNode = _nextNode;
+                _snakeParts[0].SetTarget(_currentNode);
                 _isMoving = false;
             }
         }
@@ -76,14 +100,17 @@ public class Snake : MonoBehaviour
         }
     }
 
-    private void UpdatePartsTarget()
+    private void Print()
     {
-        var target = _currentNode;
-        foreach (SnakePart snakePart in _snakeParts)
+        for (int i = 0; i < _pathFinder.Grid.GetWidth(); i++)
         {
-            snakePart.EndMove();
-            snakePart.SetTarget(target);
-            target = snakePart._currentNode;
+            for (int j = 0; j< _pathFinder.Grid.GetHeight(); j++)
+            {
+                if (!_pathFinder.Grid.GetValue(i, j).isWalkable)
+                {
+                    Debug.Log(i.ToString() + "," + j.ToString() + " is now not walkable");
+                }
+            }
         }
     }
 }
