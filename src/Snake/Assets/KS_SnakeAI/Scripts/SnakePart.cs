@@ -46,6 +46,7 @@ public class SnakePart : MonoBehaviour
         }
         
         _targetNode = target;
+        _targetNode.isWalkable = false;
         _targetPosition = new Vector3(_targetNode.X * _cellSize + _cellSize * 0.5f,
             _targetNode.Y * _cellSize + _cellSize * 0.5f, 0);
     }

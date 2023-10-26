@@ -19,7 +19,8 @@ public class PathFinder
 
     public PathNode FindStep(int startX, int startY, int endX, int endY)
     {
-        return FindPath(startX, startY, endX, endY)[1];
+        var path = FindPath(startX, startY, endX, endY);
+        return path is null ? null : path[1];
     }
 
     private List<PathNode> FindPath(int startX, int startY, int endX, int endY)

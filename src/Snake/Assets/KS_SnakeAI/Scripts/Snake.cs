@@ -73,9 +73,22 @@ public class Snake : MonoBehaviour
             if (!(_targetNode.X == _currentNode.X && _targetNode.Y  == _currentNode.Y))
             {
                 _nextNode = _pathFinder.FindStep(_currentNode.X, _currentNode.Y, _targetNode.X, _targetNode.Y);
+                if (_nextNode is null)
+                {
+                    PathNode  neighbour = FindNeighbour();
+
+                    if (neighbour is null)
+                    {
+                        Destroy(gameObject);
+                    }
+                    else
+                    {
+                        _nextNode = neighbour;
+                    }
+                }
                 _targetPosition = new Vector3(_nextNode.X * _cellSize + _cellSize * 0.5f,
-                    _nextNode.Y * _cellSize + _cellSize * 0.5f, 0);
-                _isMoving = true;
+                        _nextNode.Y * _cellSize + _cellSize * 0.5f, 0);
+                    _isMoving = true;
             }
         }
         else
@@ -89,6 +102,22 @@ public class Snake : MonoBehaviour
                 _isMoving = false;
             }
         }
+    }
+
+    private PathNode FindNeighbour()
+    {
+        int x = _currentNode.X;
+        int y = _currentNode.Y;
+
+            PathNode neighbourNode = _pathFinder.Grid.GetValue(x + 1, y);
+            if (neighbourNode is not null && neighbourNode.isWalkable) return neighbourNode;
+            neighbourNode = _pathFinder.Grid.GetValue(x - 1, y);
+            if (neighbourNode is not null && neighbourNode.isWalkable) return neighbourNode;
+            neighbourNode = _pathFinder.Grid.GetValue(x , y+1);
+            if (neighbourNode is not null && neighbourNode.isWalkable) return neighbourNode;
+            neighbourNode = _pathFinder.Grid.GetValue(x , y-1);
+            if (neighbourNode is not null && neighbourNode.isWalkable) return neighbourNode;
+            return null;
     }
 
     private void UpdatePartsMovement()
