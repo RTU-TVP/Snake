@@ -86,6 +86,12 @@ public class Snake : MonoBehaviour
     {
         if (!_isMoving)
         {
+            foreach (GameObject block in GameObject.FindGameObjectsWithTag("Block"))
+            {
+                Vector2 pos = block.transform.position;
+                _pathFinder.Grid.GetValue((int)(pos.x - 0.5f),(int)(pos.y - 0.5f)).isWalkable = false;
+            }
+
             PlayerPositioning();
             if (!(_targetNode.X == _currentNode.X && _targetNode.Y  == _currentNode.Y))
             {
