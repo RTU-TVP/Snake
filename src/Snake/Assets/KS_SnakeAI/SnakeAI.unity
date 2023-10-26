@@ -244,19 +244,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95b80085687539141ac24291b26b7525, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _width: 2
-  _height: 5
+  _width: 10
+  _height: 10
   _cellSize: 10
   _currentNode:
-    <X>k__BackingField: 0
+    <X>k__BackingField: 1
     <Y>k__BackingField: 0
     gCost: 0
     hCost: 0
     fCost: 0
     isWalkable: 0
   _targetNode:
-    <X>k__BackingField: 1
-    <Y>k__BackingField: 1
+    <X>k__BackingField: 7
+    <Y>k__BackingField: 7
     gCost: 0
     hCost: 0
     fCost: 0
@@ -271,6 +271,7 @@ MonoBehaviour:
     hCost: 0
     fCost: 0
     isWalkable: 0
+  _snakePart: {fileID: 3611394809977644034, guid: e7d7cc02b959e844d920c935eebcce1b, type: 3}
 --- !u!4 &915315798
 Transform:
   m_ObjectHideFlags: 0
@@ -298,7 +299,7 @@ GameObject:
   - component: {fileID: 1522342795}
   - component: {fileID: 1522342796}
   m_Layer: 0
-  m_Name: Circle
+  m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -361,7 +362,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.01530087, g: 1, b: 0, a: 1}
+  m_Color: {r: 0.0073991856, g: 0.4716981, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

@@ -6,16 +6,15 @@ using UnityEngine;
 public class PathFinder
 {
     public static PathFinder Instance { get; private set; }
-    private CustomGrid<PathNode> _grid;
+    public CustomGrid<PathNode> Grid { get; private set; }
 
     private List<PathNode> _openList;
     private List<PathNode> _closedList;
     public PathFinder(int width, int height)
     {
         Instance = this;
-        _grid = new CustomGrid<PathNode> (width, height, 10f, Vector2.zero, 
+        Grid = new CustomGrid<PathNode> (width, height, 10f, Vector2.zero, 
                 ((CustomGrid<PathNode> g, int x, int y) => new PathNode(g, x, y)));
-        
     }
 
     public PathNode FindStep(int startX, int startY, int endX, int endY)
@@ -25,17 +24,17 @@ public class PathFinder
 
     private List<PathNode> FindPath(int startX, int startY, int endX, int endY)
     {
-        PathNode startNode = _grid.GetValue(startX, startY);
-        PathNode endNode = _grid.GetValue(endX, endY);
+        PathNode startNode = Grid.GetValue(startX, startY);
+        PathNode endNode = Grid.GetValue(endX, endY);
         
         _openList = new List<PathNode> { startNode };
         _closedList = new List<PathNode>();
 
-        for (int i = 0; i < _grid.GetWidth(); i++)
+        for (int i = 0; i < Grid.GetWidth(); i++)
         {
-            for (int j = 0; j < _grid.GetHeight(); j++)
+            for (int j = 0; j < Grid.GetHeight(); j++)
             {
-                PathNode pathNode = _grid.GetValue(i, j);
+                PathNode pathNode = Grid.GetValue(i, j);
                 pathNode.gCost = Int32.MaxValue;
                 pathNode.CalculateFCost();
                 pathNode.FromNode = null;
@@ -81,16 +80,16 @@ public class PathFinder
     private List<PathNode> GetNeighbours(PathNode currentNode)
     {
         List<PathNode> neighbours = new List<PathNode>();
-        if (currentNode.X - 1 >= 0) neighbours.Add(_grid.GetValue(currentNode.X-1, currentNode.Y));
-        if (currentNode.X + 1 < _grid.GetWidth())neighbours.Add(_grid.GetValue(currentNode.X+1, currentNode.Y));
-        if (currentNode.Y - 1 >= 0) neighbours.Add(_grid.GetValue(currentNode.X, currentNode.Y-1));
-        if (currentNode.Y + 1 < _grid.GetHeight()) neighbours.Add(_grid.GetValue(currentNode.X, currentNode.Y+1));
+        if (currentNode.X - 1 >= 0) neighbours.Add(Grid.GetValue(currentNode.X-1, currentNode.Y));
+        if (currentNode.X + 1 < Grid.GetWidth())neighbours.Add(Grid.GetValue(currentNode.X+1, currentNode.Y));
+        if (currentNode.Y - 1 >= 0) neighbours.Add(Grid.GetValue(currentNode.X, currentNode.Y-1));
+        if (currentNode.Y + 1 < Grid.GetHeight()) neighbours.Add(Grid.GetValue(currentNode.X, currentNode.Y+1));
         return neighbours;
     }
 
     private void SetWalkable(int x, int y, bool w)
     {
-        _grid.GetValue(x, y).isWalkable = w;
+        Grid.GetValue(x, y).isWalkable = w;
     }
 
     private List<PathNode> CalculatedPath(PathNode endNode)
@@ -107,7 +106,12 @@ public class PathFinder
         path.Reverse();
         return path;
     }
-
+    
+    private void SetNodeWalkable(PathNode node, bool setting)
+    {
+        Grid.GetValue(node.X, node.Y).isWalkable = setting;
+    }
+    
     private int CalculateDistanceCost(PathNode a, PathNode b)
     {
         int xDistance = Mathf.Abs(a.X - b.X);
