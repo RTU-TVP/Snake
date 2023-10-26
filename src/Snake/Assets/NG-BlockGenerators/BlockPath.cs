@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEditor.PlayerSettings;
 
-public class BlockPosition : MonoBehaviour
+public class BlockPath : MonoBehaviour
 {
     [SerializeField] private CustomGrid<PathNode> _grid;
     private void Start()
     {
+        _grid = FindObjectOfType<Snake>().GetComponent<Snake>()._pathFinder.Grid;
         _grid.GetValue((int)(transform.position.x - 0.5f), (int)(transform.position.y - 0.5f)).isWalkable = false;
     }
 

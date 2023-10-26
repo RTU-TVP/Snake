@@ -25,7 +25,7 @@ public class Snake : MonoBehaviour
     
     [SerializeField] private int _partsOfSnake=1;
     
-    private PathFinder _pathFinder;
+    public PathFinder _pathFinder { get; private set; }
     
     void Start()
     {
@@ -86,13 +86,7 @@ public class Snake : MonoBehaviour
     {
         if (!_isMoving)
         {
-            foreach (GameObject block in GameObject.FindGameObjectsWithTag("Block"))
-            {
-                Vector2 pos = block.transform.position;
-                _pathFinder.Grid.GetValue((int)(pos.x - 0.5f),(int)(pos.y - 0.5f)).isWalkable = false;
-            }
-
-            PlayerPositioning();
+           PlayerPositioning();
             if (!(_targetNode.X == _currentNode.X && _targetNode.Y  == _currentNode.Y))
             {
                 _nextNode = _pathFinder.FindStep(_currentNode.X, _currentNode.Y, _targetNode.X, _targetNode.Y);
