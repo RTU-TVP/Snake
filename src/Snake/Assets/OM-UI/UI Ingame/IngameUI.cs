@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 
 public class IngameUI : MonoBehaviour
@@ -19,6 +20,7 @@ public class IngameUI : MonoBehaviour
     }
     void Update()
     {
+        PointsVisualize();
     }
     public void SetScore(string score)
     {
@@ -47,6 +49,7 @@ public class IngameUI : MonoBehaviour
             {
                 _timer.text = minutes.ToString() + ":" + seconds.ToString();
             }
+            Points.AddPoints(10);
             yield return new WaitForSeconds(1);
         }
         yield break;
@@ -73,6 +76,42 @@ public class IngameUI : MonoBehaviour
     public void IngameUIAppear()
     {
         _IngameUIObject.SetActive(true);
+    }
+    void PointsVisualize()
+    {
+        if(Points.GetPoints() > 99999) _score.text = Points.GetPoints().ToString();
+        else
+        {
+            if(Points.GetPoints() > 9999)
+            {
+                _score.text = "0" + Points.GetPoints().ToString();
+            }
+            else
+            {
+                if(Points.GetPoints() > 999)
+                {
+                    _score.text = "00" + Points.GetPoints().ToString();
+                }
+                else
+                {
+                    if (Points.GetPoints() > 99)
+                    {
+                        _score.text = "000" + Points.GetPoints().ToString();
+                    }
+                    else
+                    {
+                        if (Points.GetPoints() > 9)
+                        {
+                            _score.text = "0000" + Points.GetPoints().ToString();
+                        }
+                        else
+                        {
+                            _score.text = "00000" + Points.GetPoints().ToString();
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 

@@ -48,7 +48,8 @@ public class PlayerMovement : MonoBehaviour
             }
             if (abilityCheck._thisItem == Ability.plusPoints)
             {
-                // Добавить к текущему количеству очков столько, сколько надо за предмет с доп очками (ещё, вроде, змея вырастает)
+                Points.AddPoints(100);
+                // Змея вырастает
             }
             Destroy(collision.gameObject);
         }
@@ -200,6 +201,9 @@ public class PlayerMovement : MonoBehaviour
     void OnLose()
     {
         GameObject loseMenu = Instantiate(Resources.Load("OnDeathMenu"), null) as GameObject;
+        ingameUI.StopTimer();
+        loseMenu.GetComponent<UIOnDeath>().SetScore(Points.GetPoints().ToString());
+        if (Points.GetPoints() > PlayerPrefs.GetInt("bestScore")) PlayerPrefs.SetInt("bestScore",Points.GetPoints());
         Destroy(gameObject);
     }
 }
