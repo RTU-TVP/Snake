@@ -74,8 +74,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.0073991856, g: 0.4716981, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: ec6430c15931c5d49b2558038155d256, type: 3}
+  m_Color: {r: 0.9245283, g: 0.9245283, b: 0.9245283, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -193,5 +193,7 @@ MonoBehaviour:
     hCost: 0
     fCost: 0
     isWalkable: 0
+  _headCol: {fileID: 0}
+  <ColliderList>k__BackingField: []
   _snakePart: {fileID: 3611394809977644034, guid: bb53d205205eb6841935a28c4ced40f7, type: 3}
   _partsOfSnake: 2
