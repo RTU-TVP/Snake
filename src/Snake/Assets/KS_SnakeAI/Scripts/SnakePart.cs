@@ -13,23 +13,26 @@ public class SnakePart : MonoBehaviour
     [field:SerializeField] public PathNode _targetNode { get; private set; }
 
     [SerializeField] private float _speed;
+    [SerializeField] private Vector2 _position;
     [SerializeField] private bool _isMoving;
     [SerializeField] private Vector3 _targetPosition;
     [SerializeField] public SnakePart child;
     
     private CustomGrid<PathNode> _grid;
     
-    public void Setter(CustomGrid<PathNode> grid,  PathNode currentNode,PathNode targetNode, int cellSize, float speed)
+    public void Setter(CustomGrid<PathNode> grid,  PathNode currentNode,PathNode targetNode, int cellSize, Vector2 pos, float speed)
     {
         _currentNode = currentNode;
         _targetNode = targetNode;
         _cellSize = cellSize;
+        _position = pos;
         _speed = speed;
         _grid = grid;
-        _targetPosition = new Vector3(_targetNode.X * _cellSize + _cellSize * 0.5f,
-            _targetNode.Y * _cellSize + _cellSize * 0.5f, 0);
+        _targetPosition = new Vector3(_targetNode.X * _cellSize + _cellSize * 0.5f + pos.x,
+            _targetNode.Y * _cellSize + _cellSize * 0.5f+pos.y, 0);
         _grid.GetValue(_currentNode.X, _currentNode.Y).isWalkable = false;
-        transform.position = new Vector3(_currentNode.X * _cellSize + _cellSize * 0.5f, _currentNode.Y * _cellSize + _cellSize * 0.5f, 0);
+        transform.position = new Vector3(_currentNode.X * _cellSize + _cellSize * 0.5f+ pos.x, _currentNode.Y * _cellSize + _cellSize * 0.5f+ pos.y, 0);
+        transform.localScale = new Vector3( _cellSize, _cellSize, 0f);
     }
     
 
@@ -47,8 +50,8 @@ public class SnakePart : MonoBehaviour
         
         _targetNode = target;
         _targetNode.isWalkable = false;
-        _targetPosition = new Vector3(_targetNode.X * _cellSize + _cellSize * 0.5f,
-            _targetNode.Y * _cellSize + _cellSize * 0.5f, 0);
+        _targetPosition = new Vector3(_targetNode.X * _cellSize + _cellSize * 0.5f+ _position.x,
+            _targetNode.Y * _cellSize + _cellSize * 0.5f+ _position.y, 0);
     }
 
     public void UpdateMovement()

@@ -10,10 +10,10 @@ public class PathFinder
 
     private List<PathNode> _openList;
     private List<PathNode> _closedList;
-    public PathFinder(int width, int height)
+    public PathFinder(int width, int height, float cellSize, Vector2 pos)
     {
         Instance = this;
-        Grid = new CustomGrid<PathNode> (width, height, 10f, Vector2.zero, 
+        Grid = new CustomGrid<PathNode> (width, height, cellSize, pos, 
                 ((CustomGrid<PathNode> g, int x, int y) => new PathNode(g, x, y)));
     }
 

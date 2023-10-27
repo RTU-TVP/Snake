@@ -42,7 +42,7 @@ public class BlockGenerator : MonoBehaviour
         while (IsSpawnPositionBlocked(spawnPosition))
         {
             spawnPosition = GetRandomGroundPosition();
-            spawnPosition = new Vector3(Mathf.RoundToInt(spawnPosition.x), Mathf.RoundToInt(spawnPosition.y), spawnPosition.z);
+            spawnPosition = new Vector3(Mathf.RoundToInt(spawnPosition.x) + 0.5f, Mathf.RoundToInt(spawnPosition.y) + 0.5f, spawnPosition.z);
         }
 
         GameObject spawnedObject = Instantiate(objectToSpawn, spawnPosition, Quaternion.identity);
@@ -53,13 +53,16 @@ public class BlockGenerator : MonoBehaviour
 
     private bool IsSpawnPositionBlocked(Vector3 spawnPosition)
     {
-        foreach (GameObject obj in spawnedObjects)
+        Collider2D[] colliders = Physics2D.OverlapPointAll(spawnPosition);
+
+        foreach (Collider2D collider in colliders)
         {
-            if (obj != null && Vector3.Distance(obj.transform.position, spawnPosition) < 1f)
+            if (collider.CompareTag("Bonus") || collider.CompareTag("Player") || collider.CompareTag("Snake"))
             {
                 return true;
             }
         }
+
         return false;
     }
 

@@ -42,8 +42,8 @@ public class CustomGrid<TGridObject>
             {
                 for (int j = 0; j < _gridArray.GetLength(1); j++)
                 {
-                    debugTextAr[i, j] = CreateWText(_gridArray[i, j].ToString(), null, GetWorldPos(i, j) +
-                        new Vector2(_cellSize, _cellSize) * 0.5f, 20);
+                    // debugTextAr[i, j] = CreateWText(_gridArray[i, j].ToString(), null, GetWorldPos(i, j) +
+                    //     new Vector2(_cellSize, _cellSize) * 0.5f, 1);
                     Debug.DrawLine(GetWorldPos(i, j), GetWorldPos(i, j + 1), Color.white, 100f);
                     Debug.DrawLine(GetWorldPos(i, j), GetWorldPos(i + 1, j), Color.white, 100f);
                 }
@@ -59,7 +59,7 @@ public class CustomGrid<TGridObject>
     //DEBUG
     //------------------------------
     private TextMesh CreateWText(string text, Transform parrent = null, Vector3 localPos = default(Vector3),
-        int fontSize = 40)
+        int fontSize = 1)
     {
         GameObject gameObject = new GameObject("WText", typeof(TextMesh));
         Transform transform = gameObject.transform;
