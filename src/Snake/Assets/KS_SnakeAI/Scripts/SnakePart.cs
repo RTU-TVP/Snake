@@ -15,7 +15,7 @@ public class SnakePart : MonoBehaviour
     [SerializeField] private float _speed;
     [SerializeField] private Vector2 _position;
     [SerializeField] private bool _isMoving;
-    [SerializeField] private Vector3 _targetPosition;
+    [SerializeField] public Vector3 TargetPosition { get; private set; }
     [SerializeField] public SnakePart child;
     
     private CustomGrid<PathNode> _grid;
@@ -28,7 +28,7 @@ public class SnakePart : MonoBehaviour
         _position = pos;
         _speed = speed;
         _grid = grid;
-        _targetPosition = new Vector3(_targetNode.X * _cellSize + _cellSize * 0.5f + pos.x,
+        TargetPosition = new Vector3(_targetNode.X * _cellSize + _cellSize * 0.5f + pos.x,
             _targetNode.Y * _cellSize + _cellSize * 0.5f+pos.y, 0);
         _grid.GetValue(_currentNode.X, _currentNode.Y).isWalkable = false;
         transform.position = new Vector3(_currentNode.X * _cellSize + _cellSize * 0.5f+ pos.x, _currentNode.Y * _cellSize + _cellSize * 0.5f+ pos.y, 0);
@@ -50,12 +50,17 @@ public class SnakePart : MonoBehaviour
         
         _targetNode = target;
         _targetNode.isWalkable = false;
-        _targetPosition = new Vector3(_targetNode.X * _cellSize + _cellSize * 0.5f+ _position.x,
+        TargetPosition = new Vector3(_targetNode.X * _cellSize + _cellSize * 0.5f+ _position.x,
             _targetNode.Y * _cellSize + _cellSize * 0.5f+ _position.y, 0);
+        
+        transform.GetComponentInChildren<ImageRotationP>().UpdateImageRotation();
     }
-
+    public Vector2 GetDirection()
+    {
+        return (_targetNode.Positioning() - _currentNode.Positioning()).normalized;
+    }
     public void UpdateMovement()
     {
-        transform.position += (_targetPosition-transform.position).normalized * (_cellSize * _speed) * Time.deltaTime;
+        transform.position += (TargetPosition-transform.position).normalized * (_cellSize * _speed) * Time.deltaTime;
     }
 }
