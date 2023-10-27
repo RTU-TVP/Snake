@@ -317,6 +317,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestPlayerPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 3453621039851110030, guid: 3c31e95bbc30f534983bf8bf0b4acf28, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 5930827089698913461, guid: 3c31e95bbc30f534983bf8bf0b4acf28, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.5
@@ -418,8 +422,16 @@ PrefabInstance:
       propertyPath: _headCol
       value: 
       objectReference: {fileID: 411234711}
+    - target: {fileID: 5479481377013319584, guid: 4cefb6abb7d09e640a097573e77cd015, type: 3}
+      propertyPath: m_TagString
+      value: Snake
+      objectReference: {fileID: 0}
     - target: {fileID: 8483531743877480895, guid: 4cefb6abb7d09e640a097573e77cd015, type: 3}
       propertyPath: m_Name
+      value: Snake
+      objectReference: {fileID: 0}
+    - target: {fileID: 8483531743877480895, guid: 4cefb6abb7d09e640a097573e77cd015, type: 3}
+      propertyPath: m_TagString
       value: Snake
       objectReference: {fileID: 0}
     m_RemovedComponents: []
