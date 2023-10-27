@@ -55,11 +55,11 @@ public class IngameUI : MonoBehaviour
     {
         timerActive = false;
     }
-    public void SetAbilityImage(string imageName)
+    public void SetAbilityImage(Ability ability)
     {
         foreach (NamedImage abilityImage in _abilityImageList)
         {
-            if(abilityImage.nameOfAbility == imageName)
+            if(abilityImage.nameOfAbility == ability)
             {
                 _currentAbility.sprite = abilityImage.sprite;
                 break;
@@ -100,6 +100,6 @@ public class IngameUI : MonoBehaviour
 [Serializable]
 public class NamedImage
 {
-    public string nameOfAbility;
+    public Ability nameOfAbility;
     public Sprite sprite;
 }

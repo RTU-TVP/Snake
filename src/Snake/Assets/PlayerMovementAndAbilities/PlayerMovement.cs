@@ -21,9 +21,11 @@ public class PlayerMovement : MonoBehaviour
     Ability currentAbility;
     bool isPlayerInCellCenter;
     Vector2 playerCellCoordinates;
+    IngameUI ingameUI;
     void Start()
     {
-        currentAbility = Ability.no;
+        ingameUI = GameObject.FindObjectOfType<IngameUI>().GetComponent<IngameUI>();
+        SetAbility(Ability.no);
         theoreticalPlayerSpeed = _basePlayerSpeed;
         realPlayerSpeed = 0;
         playerTransform = GetComponent<Transform>();
@@ -170,6 +172,7 @@ public class PlayerMovement : MonoBehaviour
     public void SetAbility(Ability newAbility)
     {
         currentAbility = newAbility;
+        ingameUI.SetAbilityImage(newAbility);
     }
     IEnumerator SpeedUpAbilityTimer(int time)
     {
