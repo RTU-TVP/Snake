@@ -50,6 +50,14 @@ public class PlayerMovement : MonoBehaviour
             }
             Destroy(collision.gameObject);
         }
+        else
+        {
+            if(collision.gameObject.layer == 9)
+            {
+                //lose
+                OnLose();
+            }
+        }
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
@@ -103,12 +111,9 @@ public class PlayerMovement : MonoBehaviour
     }
     void ChangeDirection()
     {
-        if (nextDirection != currentDirection)
+        if ((nextDirection != currentDirection) && isPlayerInCellCenter)
         {
-            if(isPlayerInCellCenter)
-            {
-                currentDirection = nextDirection;
-            }
+            currentDirection = nextDirection;
             realPlayerSpeed = theoreticalPlayerSpeed;
         }
     }
@@ -188,6 +193,11 @@ public class PlayerMovement : MonoBehaviour
         }
         realPlayerSpeed = theoreticalPlayerSpeed;
         yield break;
+    }
+    void OnLose()
+    {
+        GameObject loseMenu = Instantiate(Resources.Load("OnDeathMenu"), null) as GameObject;
+        Destroy(gameObject);
     }
 }
 public enum Direction

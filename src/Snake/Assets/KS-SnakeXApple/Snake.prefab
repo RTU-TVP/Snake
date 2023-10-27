@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4345521250160023383}
   - component: {fileID: 4293633423702515276}
   - component: {fileID: 5309682531064576965}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,7 +130,7 @@ GameObject:
   m_Component:
   - component: {fileID: 92202436724481969}
   - component: {fileID: 1839830942021866057}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Snake
   m_TagString: Untagged
   m_Icon: {fileID: 0}
