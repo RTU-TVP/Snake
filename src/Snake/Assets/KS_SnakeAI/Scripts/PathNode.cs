@@ -26,9 +26,18 @@ public class PathNode
     {
         return X + "," + Y;
     }
-
+    public Vector2 Positioning()
+    {
+        return new Vector2(X, Y);
+    }
     public void CalculateFCost()
     {
         fCost = gCost + hCost;
+    }
+
+    public void XYSet(int x, int y)
+    {
+        X = x;
+        Y = y;
     }
 }
