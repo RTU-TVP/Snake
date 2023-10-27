@@ -8,6 +8,7 @@ TagManager:
   - Block
   - Snake
   - Portal
+  - Bonus
   layers:
   - Default
   - TransparentFX

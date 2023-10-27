@@ -154,7 +154,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c888149336994c408f6d7a6e4628d24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destinationPortal: {fileID: 741092539}
+  _destinationPortal: {fileID: 741092539}
+  _cooldownDuration: 5
 --- !u!61 &34901618
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -262,7 +263,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.5, y: 5.5, z: 0}
-  m_LocalScale: {x: 0.3057, y: 0.2247, z: 1}
+  m_LocalScale: {x: 0.28, y: 0.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -816,7 +817,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8146987187486877622, guid: 3c31e95bbc30f534983bf8bf0b4acf28, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8146987187486877622, guid: 3c31e95bbc30f534983bf8bf0b4acf28, type: 3}
       propertyPath: m_Offset.x
@@ -884,7 +885,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.5, y: 1.5, z: 0}
-  m_LocalScale: {x: 0.3057, y: 0.2247, z: 1}
+  m_LocalScale: {x: 0.28, y: 0.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -901,7 +902,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c888149336994c408f6d7a6e4628d24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destinationPortal: {fileID: 34901620}
+  _destinationPortal: {fileID: 34901620}
+  _cooldownDuration: 5
 --- !u!61 &741092541
 BoxCollider2D:
   m_ObjectHideFlags: 0

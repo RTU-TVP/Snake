@@ -4,13 +4,23 @@ using UnityEngine;
 
 public class Portal : MonoBehaviour
 {
-    public Transform destinationPortal; // ѕортал, в который будет осуществлен переход
+    public Transform _destinationPortal;
+    [SerializeField] private float _cooldownDuration;
+    private static bool _canTeleport = true;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (_canTeleport && collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.transform.position = destinationPortal.position; // ѕеремещаем игрока к позиции портала назначени€
+            StartCoroutine(TeleportPlayer(collision.gameObject));
         }
+    }
+
+    private IEnumerator TeleportPlayer(GameObject player)
+    {
+        _canTeleport = false; 
+        player.transform.position = _destinationPortal.position + new Vector3(1f, 0f, 0f);
+        yield return new WaitForSeconds(_cooldownDuration);
+        _canTeleport = true;
     }
 }
