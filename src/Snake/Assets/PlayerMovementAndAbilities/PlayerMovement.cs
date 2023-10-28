@@ -49,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
             if (abilityCheck._thisItem == Ability.plusPoints)
             {
                 Points.AddPoints(100);
-                // Змея вырастает
+                // пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             }
             Destroy(collision.gameObject);
         }
@@ -186,7 +186,7 @@ public class PlayerMovement : MonoBehaviour
     {
         gameObject.layer = 6;
         yield return new WaitForSeconds(time);
-        gameObject.layer = 0;
+        gameObject.layer = 8;
         yield break;
     }
     IEnumerator BarrierDisappear(GameObject go)
