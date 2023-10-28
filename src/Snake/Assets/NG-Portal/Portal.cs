@@ -18,9 +18,13 @@ public class Portal : MonoBehaviour
 
     private IEnumerator TeleportPlayer(GameObject player)
     {
-        _canTeleport = false; 
+        _canTeleport = false;
+        gameObject.layer = 11;
+        _destinationPortal.gameObject.layer = 11;
         player.transform.position = _destinationPortal.position + new Vector3(1f, 0f, 0f);
         yield return new WaitForSeconds(_cooldownDuration);
         _canTeleport = true;
+        gameObject.layer = 0;
+        _destinationPortal.gameObject.layer = 0;
     }
 }
