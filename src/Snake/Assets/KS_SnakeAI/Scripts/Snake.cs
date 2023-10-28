@@ -19,8 +19,8 @@ public class Snake : MonoBehaviour
     [SerializeField] private PathNode _nextNode;
 
     private List<SnakePart> _snakeParts = new List<SnakePart>();
-    [SerializeField] private CapsuleCollider2D _headCol;
-    [field:SerializeField] public List<CapsuleCollider2D> ColliderList { get; private set; } =  new List<CapsuleCollider2D>();
+    [SerializeField] private BoxCollider2D _headCol;
+    [field:SerializeField] public List<BoxCollider2D> ColliderList { get; private set; } =  new List<BoxCollider2D>();
     
     [SerializeField] private GameObject _snakePart;    
     [SerializeField] private GameObject _snakeTail;    
@@ -46,7 +46,7 @@ public class Snake : MonoBehaviour
         PathFinder = new PathFinder(_width, _height, _cellSize, _position);
         transform.position = new Vector3(_currentNode.X * _cellSize + _cellSize * 0.5f+_position.x, _currentNode.Y * _cellSize + _cellSize * 0.5f +_position.y, 0);
         transform.localScale = new Vector3( _cellSize, _cellSize, 0f);
-        _headCol = transform.GetChild(0).GetComponent<CapsuleCollider2D>();
+        _headCol = transform.GetChild(0).GetComponent<BoxCollider2D>();
         ColliderList.Add(_headCol);
         CreationParts(1);
     }
@@ -90,7 +90,7 @@ public class Snake : MonoBehaviour
         part._targetNode.isWalkable = false;
         part.transform.GetComponentInChildren<ImageRotationP>().Snake = part.GetComponent<SnakePart>();
         _snakeParts.Add(part);
-        ColliderList.Add(snakePart.GetComponentInChildren<CapsuleCollider2D>());
+        ColliderList.Add(snakePart.GetComponentInChildren<BoxCollider2D>());
     }
     private void SnakePartCreate(int xAdd=0, int yAdd=0)
     {
@@ -106,7 +106,7 @@ public class Snake : MonoBehaviour
         part.transform.GetComponentInChildren<ImageRotationP>().Snake = part.GetComponent<SnakePart>();
         _snakeParts[x].child = part;
         _snakeParts.Add(part);
-        ColliderList.Add(snakePart.GetComponentInChildren<CapsuleCollider2D>());
+        ColliderList.Add(snakePart.GetComponentInChildren<BoxCollider2D>());
     }
     private void Update()
     {

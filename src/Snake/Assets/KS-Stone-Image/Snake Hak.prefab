@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4345521250160023383}
   - component: {fileID: 4293633423702515276}
   - component: {fileID: 5337576358483002311}
-  - component: {fileID: 6414939565830615653}
+  - component: {fileID: 7028182523385182028}
   m_Layer: 9
   m_Name: Head
   m_TagString: Snake
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ec6430c15931c5d49b2558038155d256, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fcebc6c54f2e99947a10862134c13dea, type: 3}
   m_Color: {r: 0.9245283, g: 0.9245283, b: 0.9245283, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Snake: {fileID: 1839830942021866057}
---- !u!61 &6414939565830615653
+--- !u!61 &7028182523385182028
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -131,7 +131,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.15}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -142,7 +142,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7, y: 0.7}
+  m_Size: {x: 0.9, y: 0.9}
   m_EdgeRadius: 0
 --- !u!1 &8483531743877480895
 GameObject:
@@ -155,9 +155,9 @@ GameObject:
   - component: {fileID: 92202436724481969}
   - component: {fileID: 1839830942021866057}
   - component: {fileID: 378932339038272837}
-  - component: {fileID: 8834347290081423875}
+  - component: {fileID: 6359781486669948364}
   m_Layer: 10
-  m_Name: Snake
+  m_Name: Snake Hak
   m_TagString: Snake
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -220,8 +220,8 @@ MonoBehaviour:
     isWalkable: 0
   _headCol: {fileID: 0}
   <ColliderList>k__BackingField: []
-  _snakePart: {fileID: 3611394809977644034, guid: fdbea1d1a1f18aa48a398dda5344d3e9, type: 3}
-  _snakeTail: {fileID: 3246289490912899609, guid: 572364a5e5817f641a606a0266e06c8b, type: 3}
+  _snakePart: {fileID: 3611394809977644034, guid: e20ac16803799244ab38dd56077e4fb3, type: 3}
+  _snakeTail: {fileID: 3246289490912899609, guid: d1adf3096b2521a468623d1550b9f4d3, type: 3}
   _partsOfSnake: 2
   _partAddTimerCap: 5
   _stanTimerCap: 3
@@ -253,7 +253,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &8834347290081423875
+--- !u!61 &6359781486669948364
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -282,10 +282,10 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.15}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -296,5 +296,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7, y: 0.7}
+  m_Size: {x: 0.9, y: 0.9}
   m_EdgeRadius: 0
