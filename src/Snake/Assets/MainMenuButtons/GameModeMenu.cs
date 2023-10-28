@@ -10,6 +10,7 @@ using UnityEngine.UI;
 public class GameModeMenu : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] Button _playButton;
+    [SerializeField] Button _chooseButton;
     [SerializeField] Button _exitButton;
     [SerializeField] Button _classicModeButton;
     [SerializeField] Button _infiniteModeButton;
@@ -40,6 +41,7 @@ public class GameModeMenu : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         if (Input.GetMouseButtonUp(0))
         {
             _playButton.interactable = true;
+            _chooseButton.interactable = true;
             _exitButton.interactable = true;
             gameObject.SetActive(false);
         }
