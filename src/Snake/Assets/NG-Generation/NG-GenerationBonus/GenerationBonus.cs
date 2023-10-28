@@ -43,8 +43,10 @@ public class GenerationBonus : MonoBehaviour
     {
         GameObject _prefab = _bonusObject[Random.Range(0, _bonusObject.Length)];
         Transform _spawnPoint = _spawnPoints[Random.Range(0, _spawnPoints.Length)];
+        Vector3 spawnPosition = _spawnPoint.position;
+        spawnPosition.z = 0f;
 
-        Instantiate(_prefab, _spawnPoint.position, Quaternion.identity);
+        Instantiate(_prefab, spawnPosition, Quaternion.identity);
     }
 
     private Transform[] FindObjectsWithTag(string tag)

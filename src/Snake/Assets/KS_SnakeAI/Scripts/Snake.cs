@@ -109,6 +109,7 @@ public class Snake : MonoBehaviour
         if (collision.gameObject.tag == "Stone")
         {
             _stanTimer=3;
+            Destroy(collision.gameObject);
         }
     }
     private void FixedUpdate()
