@@ -11,6 +11,10 @@ public class Portal : MonoBehaviour
     [SerializeField] private Sprite _sprite;
     [SerializeField] private Sprite _altSprite;
 
+    private void Start()
+    {
+        _canTeleport = true;
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (_canTeleport && collision.gameObject.CompareTag("Player"))
