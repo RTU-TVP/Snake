@@ -19,8 +19,8 @@ public class Snake : MonoBehaviour
     [SerializeField] private PathNode _nextNode;
 
     private List<SnakePart> _snakeParts = new List<SnakePart>();
-    [SerializeField] private CircleCollider2D _headCol;
-    [field:SerializeField] public List<CircleCollider2D> ColliderList { get; private set; } =  new List<CircleCollider2D>();
+    [SerializeField] private CapsuleCollider2D _headCol;
+    [field:SerializeField] public List<CapsuleCollider2D> ColliderList { get; private set; } =  new List<CapsuleCollider2D>();
     
     [SerializeField] private GameObject _snakePart;    
     [SerializeField] private GameObject _snakeTail;    
@@ -46,20 +46,23 @@ public class Snake : MonoBehaviour
         PathFinder = new PathFinder(_width, _height, _cellSize, _position);
         transform.position = new Vector3(_currentNode.X * _cellSize + _cellSize * 0.5f+_position.x, _currentNode.Y * _cellSize + _cellSize * 0.5f +_position.y, 0);
         transform.localScale = new Vector3( _cellSize, _cellSize, 0f);
-        _headCol = transform.GetChild(0).GetComponent<CircleCollider2D>();
+        _headCol = transform.GetChild(0).GetComponent<CapsuleCollider2D>();
         ColliderList.Add(_headCol);
         CreationParts(1);
     }
 
     private void AddToTail()
     {
-        _snakeParts[_snakeParts.Count - 1].GetComponentInChildren<SpriteRenderer>().sprite = _snakePart.GetComponentInChildren<SpriteRenderer>().sprite;
-        _snakeParts[_snakeParts.Count - 1].GetComponentInChildren<BoxCollider2D>().offset = _snakePart.GetComponentInChildren<BoxCollider2D>().offset;
-        _snakeParts[_snakeParts.Count - 1].GetComponentInChildren<BoxCollider2D>().size = _snakePart.GetComponentInChildren<BoxCollider2D>().size;
+        TailChanger(_snakePart);
         SnakePartCreate(0);
-        _snakeParts[_snakeParts.Count - 1].GetComponentInChildren<SpriteRenderer>().sprite = _snakeTail.GetComponentInChildren<SpriteRenderer>().sprite;
-        _snakeParts[_snakeParts.Count - 1].GetComponentInChildren<BoxCollider2D>().offset = _snakeTail.GetComponentInChildren<BoxCollider2D>().offset;
-        _snakeParts[_snakeParts.Count - 1].GetComponentInChildren<BoxCollider2D>().size = _snakeTail.GetComponentInChildren<BoxCollider2D>().size;
+        TailChanger(_snakeTail);
+    }
+
+    private void TailChanger(GameObject prefab)
+    {
+        _snakeParts[_snakeParts.Count - 1].GetComponentInChildren<SpriteRenderer>().sprite = prefab.GetComponentInChildren<SpriteRenderer>().sprite;
+        _snakeParts[_snakeParts.Count - 1].GetComponentInChildren<BoxCollider2D>().offset = prefab.GetComponentInChildren<BoxCollider2D>().offset;
+        _snakeParts[_snakeParts.Count - 1].GetComponentInChildren<BoxCollider2D>().size = prefab.GetComponentInChildren<BoxCollider2D>().size;
     }
 
     private void CreationParts(int k)
@@ -87,7 +90,7 @@ public class Snake : MonoBehaviour
         part._targetNode.isWalkable = false;
         part.transform.GetComponentInChildren<ImageRotationP>().Snake = part.GetComponent<SnakePart>();
         _snakeParts.Add(part);
-        ColliderList.Add(snakePart.GetComponentInChildren<CircleCollider2D>());
+        ColliderList.Add(snakePart.GetComponentInChildren<CapsuleCollider2D>());
     }
     private void SnakePartCreate(int xAdd=0, int yAdd=0)
     {
@@ -103,7 +106,7 @@ public class Snake : MonoBehaviour
         part.transform.GetComponentInChildren<ImageRotationP>().Snake = part.GetComponent<SnakePart>();
         _snakeParts[x].child = part;
         _snakeParts.Add(part);
-        ColliderList.Add(snakePart.GetComponentInChildren<CircleCollider2D>());
+        ColliderList.Add(snakePart.GetComponentInChildren<CapsuleCollider2D>());
     }
     private void Update()
     {

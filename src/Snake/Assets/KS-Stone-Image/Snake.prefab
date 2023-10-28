@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5354956477754861828}
   m_Layer: 9
   m_Name: Head
-  m_TagString: Untagged
+  m_TagString: Snake
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -128,7 +128,7 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.22357428}
@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 1839830942021866057}
   - component: {fileID: 518441394719733480}
   - component: {fileID: 378932339038272837}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Snake
   m_TagString: Snake
   m_Icon: {fileID: 0}
@@ -208,13 +208,14 @@ MonoBehaviour:
     hCost: 0
     fCost: 0
     isWalkable: 0
-  _headCol: {fileID: 0}
+  _headCol: {fileID: 518441394719733480}
   <ColliderList>k__BackingField: []
   _snakePart: {fileID: 3611394809977644034, guid: fdbea1d1a1f18aa48a398dda5344d3e9, type: 3}
-  _snakeTail: {fileID: 0}
+  _snakeTail: {fileID: 3246289490912899609, guid: 572364a5e5817f641a606a0266e06c8b, type: 3}
   _partsOfSnake: 2
-  _partAddTimerCap: 0
-  _stanTimer: 0
+  _partAddTimerCap: 5
+  _stanTimerCap: 3
+  _classicMode: 0
 --- !u!70 &518441394719733480
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -244,7 +245,7 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.22357428}

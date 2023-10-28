@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4345521250160023383}
   - component: {fileID: 4293633423702515276}
-  - component: {fileID: 5309682531064576965}
+  - component: {fileID: 8431990046717323966}
   m_Layer: 9
   m_Name: Head
   m_TagString: Untagged
@@ -85,8 +85,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &5309682531064576965
-CircleCollider2D:
+--- !u!70 &8431990046717323966
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -118,8 +118,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
+  m_Size: {x: 0.5355881, y: 0.5355881}
+  m_Direction: 0
 --- !u!1 &8483531743877480895
 GameObject:
   m_ObjectHideFlags: 0
@@ -185,7 +185,6 @@ MonoBehaviour:
     isWalkable: 0
   _speed: 5
   _isMoving: 0
-  _targetPosition: {x: 0, y: 0, z: 0}
   _nextNode:
     <X>k__BackingField: 0
     <Y>k__BackingField: 0
@@ -196,4 +195,8 @@ MonoBehaviour:
   _headCol: {fileID: 0}
   <ColliderList>k__BackingField: []
   _snakePart: {fileID: 3611394809977644034, guid: bb53d205205eb6841935a28c4ced40f7, type: 3}
+  _snakeTail: {fileID: 0}
   _partsOfSnake: 2
+  _partAddTimerCap: 0
+  _stanTimerCap: 0
+  _classicMode: 1
