@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1175931777386672541}
   - component: {fileID: 1219607303585087033}
   - component: {fileID: 7104676952044032732}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: PlusPoints
   m_TagString: Bonus
   m_Icon: {fileID: 0}
