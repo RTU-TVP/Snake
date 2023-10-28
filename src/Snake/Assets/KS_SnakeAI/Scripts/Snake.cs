@@ -29,8 +29,9 @@ public class Snake : MonoBehaviour
     [SerializeField] private int _partsOfSnake=1;
     private float _partsAddTimer;
     [SerializeField] private float _partAddTimerCap = 0;
-    [SerializeField] private float _stanTimer=0;
-    
+     private float _stanTimer=0;
+    [SerializeField] private float _stanTimerCap=0;
+    [SerializeField] private bool _classicMode=true;
     public PathFinder PathFinder { get; private set; }
 
     public void CurrentPosSetter(Vector2 pos)
@@ -120,8 +121,9 @@ public class Snake : MonoBehaviour
     {
         if (collision.gameObject.tag == "Stone")
         {
-            _stanTimer = 3;
+            _stanTimer = _stanTimerCap;
             Destroy(collision.gameObject);
+            if (_classicMode) FindFirstObjectByType<DeleteHeart>().DestroyHeart();
         }
         if (collision.gameObject.tag == "Bonus")
         {

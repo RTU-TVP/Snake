@@ -1552,6 +1552,22 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1839830942021866057, guid: cda880371ae24c34d87134eb93fbbf17, type: 3}
+      propertyPath: _snakeTail
+      value: 
+      objectReference: {fileID: 3246289490912899609, guid: 572364a5e5817f641a606a0266e06c8b, type: 3}
+    - target: {fileID: 1839830942021866057, guid: cda880371ae24c34d87134eb93fbbf17, type: 3}
+      propertyPath: _stanTimer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1839830942021866057, guid: cda880371ae24c34d87134eb93fbbf17, type: 3}
+      propertyPath: _classicMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1839830942021866057, guid: cda880371ae24c34d87134eb93fbbf17, type: 3}
+      propertyPath: _partAddTimerCap
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5479481377013319584, guid: cda880371ae24c34d87134eb93fbbf17, type: 3}
       propertyPath: m_Layer
       value: 9
