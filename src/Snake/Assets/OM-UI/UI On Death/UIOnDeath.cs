@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIOnDeath : MonoBehaviour
@@ -10,10 +11,17 @@ public class UIOnDeath : MonoBehaviour
     [SerializeField] Button _restartButton;
     [SerializeField] Button _menuButton;
     [SerializeField] TextMeshProUGUI _score;
-    [SerializeField] TextMeshProUGUI _deathReason;
+    [SerializeField] TextMeshProUGUI _timer;
     [SerializeField] GameObject _onDeathMenu;
+    IngameUI ingameMenu;
+    Action restart;
+    Action menu;
     void Awake()
     {
+        ingameMenu = GameObject.FindObjectOfType<IngameUI>();
+        SetTimer();
+        SetActionToRestart(RestartLevel);
+        SetActionToMenu(GoToMenu);
     }
     void Update()
     {
@@ -41,15 +49,20 @@ public class UIOnDeath : MonoBehaviour
             _score.text = "Ваш счёт: " + score;
         }
     }
-    public void SetDeathReason(string reason)
+    public void SetTimer()
     {
-        if(reason != null)
-        {
-            _deathReason.text = "������� ������: " + reason;
-        }
+        _timer.text = "Ваше время: " + ingameMenu.GetTimer();
     }
     public void DeathMenuAppear()
     {
         _onDeathMenu.SetActive(true);
+    }
+    void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    void GoToMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }

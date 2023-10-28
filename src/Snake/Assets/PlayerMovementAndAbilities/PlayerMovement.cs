@@ -22,6 +22,8 @@ public class PlayerMovement : MonoBehaviour
     bool isPlayerInCellCenter;
     Vector2 playerCellCoordinates;
     IngameUI ingameUI;
+    IEnumerator speedUp;
+    IEnumerator shield;
     void Start()
     {
         ingameUI = GameObject.FindObjectOfType<IngameUI>().GetComponent<IngameUI>();
@@ -155,11 +157,15 @@ public class PlayerMovement : MonoBehaviour
         {
             if (thisAbility == Ability.speedBoost)
             {
-                StartCoroutine(SpeedUpAbilityTimer(_speedupBoostTime));
+                if(speedUp != null) StopCoroutine(speedUp);
+                speedUp = SpeedUpAbilityTimer(_speedupBoostTime);
+                StartCoroutine(speedUp);
             }
             if(thisAbility == Ability.shield)
             {
-                StartCoroutine(ShieldAbilityTimer(_shieldTime));
+                if(shield != null) StopCoroutine(shield);
+                shield = ShieldAbilityTimer(_shieldTime);
+                StartCoroutine(shield);
             }
             if(thisAbility == Ability.stone)
             {

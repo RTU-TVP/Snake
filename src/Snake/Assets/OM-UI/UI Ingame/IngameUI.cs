@@ -29,6 +29,10 @@ public class IngameUI : MonoBehaviour
             _score.text = "Ñ÷¸ò: " + score;
         }
     }
+    public string GetTimer()
+    {
+        return _timer.text;
+    }
     IEnumerator Timer()
     {
         int seconds = 0;
@@ -48,6 +52,10 @@ public class IngameUI : MonoBehaviour
             else
             {
                 _timer.text = minutes.ToString() + ":" + seconds.ToString();
+            }
+            if(minutes <= 9)
+            {
+                _timer.text = "0" + _timer.text;
             }
             Points.AddPoints(10);
             yield return new WaitForSeconds(1);

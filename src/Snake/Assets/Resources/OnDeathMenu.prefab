@@ -948,5 +948,5 @@ MonoBehaviour:
   _restartButton: {fileID: 8666814061105671975}
   _menuButton: {fileID: 4145125187790455264}
   _score: {fileID: 896566069814745717}
-  _deathReason: {fileID: 0}
+  _timer: {fileID: 8718653648337780253}
   _onDeathMenu: {fileID: 3732026351331384288}
