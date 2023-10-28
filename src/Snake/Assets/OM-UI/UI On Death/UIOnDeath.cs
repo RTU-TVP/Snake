@@ -38,14 +38,14 @@ public class UIOnDeath : MonoBehaviour
     {
         if(score != null)
         {
-            _score.text = "Ваш счёт: " + score;
+            _score.text = "Р’Р°С€ СЃС‡С‘С‚: " + score;
         }
     }
     public void SetDeathReason(string reason)
     {
         if(reason != null)
         {
-            _deathReason.text = "Причина смерти: " + reason;
+            _deathReason.text = "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ: " + reason;
         }
     }
     public void DeathMenuAppear()
