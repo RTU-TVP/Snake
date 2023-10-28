@@ -16,6 +16,7 @@ public class IngameUI : MonoBehaviour
     bool timerActive = true;
     void Start()
     {
+        Points.SetPoints(0);
         StartCoroutine(Timer());
     }
     void Update()

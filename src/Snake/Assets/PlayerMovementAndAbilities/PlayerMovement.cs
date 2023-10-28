@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float _speedWhenBoosted;
     [SerializeField] int _shieldTime;
     [SerializeField] GameObject _stonePrefab;
+    Animator animator;
     float realPlayerSpeed;
     float theoreticalPlayerSpeed;
     Direction currentDirection;
@@ -26,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator shield;
     void Start()
     {
+        animator = GetComponent<Animator>();
         ingameUI = GameObject.FindObjectOfType<IngameUI>().GetComponent<IngameUI>();
         SetAbility(Ability.no);
         theoreticalPlayerSpeed = _basePlayerSpeed;
@@ -51,7 +53,6 @@ public class PlayerMovement : MonoBehaviour
             if (abilityCheck._thisItem == Ability.plusPoints)
             {
                 Points.AddPoints(100);
-                // ���� ���������
             }
             Destroy(collision.gameObject);
         }
@@ -76,6 +77,7 @@ public class PlayerMovement : MonoBehaviour
     }
     void Update()
     {
+        AnimationSpeed();
         isPlayerInCellCenter = ((Mathf.Round((playerTransform.position.x - 0.5f) * 10f) / 10f) % 1.00 == 0 && (Mathf.Round((playerTransform.position.y - 0.5f) * 10f) / 10f) % 1.00 == 0);
         ChooseNextDirection();
         ChangeDirection();
@@ -127,21 +129,37 @@ public class PlayerMovement : MonoBehaviour
         playerPosition = playerTransform.position;
         if(currentDirection == Direction.up)
         {
+            animator.SetBool("up", true);
+            animator.SetBool("down", false);
+            animator.SetBool("right", false);
+            animator.SetBool("left", false);
             playerPosition.y += realPlayerSpeed * Time.deltaTime;
             playerPosition.x = Mathf.Round(playerPosition.x * 10) / 10;
         }
         if (currentDirection == Direction.down)
         {
+            animator.SetBool("up", false);
+            animator.SetBool("down", true);
+            animator.SetBool("right", false);
+            animator.SetBool("left", false);
             playerPosition.y -= realPlayerSpeed * Time.deltaTime;
             playerPosition.x = Mathf.Round(playerPosition.x * 10) / 10;
         }
         if (currentDirection == Direction.left)
         {
+            animator.SetBool("up", false);
+            animator.SetBool("down", false);
+            animator.SetBool("right", false);
+            animator.SetBool("left", true);
             playerPosition.x -= realPlayerSpeed * Time.deltaTime;
             playerPosition.y = Mathf.Round(playerPosition.y * 10) / 10;
         }
         if (currentDirection == Direction.right)
         {
+            animator.SetBool("up", false);
+            animator.SetBool("down", false);
+            animator.SetBool("right", true);
+            animator.SetBool("left", false);
             playerPosition.x += realPlayerSpeed * Time.deltaTime;
             playerPosition.y = Mathf.Round(playerPosition.y * 10) / 10;
         }
@@ -180,6 +198,7 @@ public class PlayerMovement : MonoBehaviour
     {
         currentAbility = newAbility;
         ingameUI.SetAbilityImage(newAbility);
+
     }
     IEnumerator SpeedUpAbilityTimer(int time)
     {
@@ -211,6 +230,10 @@ public class PlayerMovement : MonoBehaviour
         loseMenu.GetComponent<UIOnDeath>().SetScore(Points.GetPoints().ToString());
         if (Points.GetPoints() > PlayerPrefs.GetInt("bestScore")) PlayerPrefs.SetInt("bestScore",Points.GetPoints());
         Destroy(gameObject);
+    }
+    void AnimationSpeed()
+    {
+        animator.speed = realPlayerSpeed / 5;
     }
 }
 public enum Direction
