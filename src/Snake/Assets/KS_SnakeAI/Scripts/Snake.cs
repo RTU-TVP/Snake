@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Snake : MonoBehaviour
 {
@@ -21,10 +22,13 @@ public class Snake : MonoBehaviour
     [SerializeField] private CircleCollider2D _headCol;
     [field:SerializeField] public List<CircleCollider2D> ColliderList { get; private set; } =  new List<CircleCollider2D>();
     
-    [SerializeField] private GameObject _snakePart;
-    
+    [SerializeField] private GameObject _snakePart;    
+    [SerializeField] private GameObject _snakeTail;    
+
+
     [SerializeField] private int _partsOfSnake=1;
-    [SerializeField] private float _partsAddTimer=0;
+    private float _partsAddTimer;
+    [SerializeField] private float _partAddTimerCap = 0;
     [SerializeField] private float _stanTimer=0;
     
     public PathFinder PathFinder { get; private set; }
@@ -36,6 +40,8 @@ public class Snake : MonoBehaviour
     
     void OnEnable()
     {
+        _partsAddTimer = _partAddTimerCap;
+
         PathFinder = new PathFinder(_width, _height, _cellSize, _position);
         transform.position = new Vector3(_currentNode.X * _cellSize + _cellSize * 0.5f+_position.x, _currentNode.Y * _cellSize + _cellSize * 0.5f +_position.y, 0);
         transform.localScale = new Vector3( _cellSize, _cellSize, 0f);
@@ -46,7 +52,13 @@ public class Snake : MonoBehaviour
 
     private void AddToTail()
     {
+        _snakeParts[_snakeParts.Count - 1].GetComponentInChildren<SpriteRenderer>().sprite = _snakePart.GetComponentInChildren<SpriteRenderer>().sprite;
+        _snakeParts[_snakeParts.Count - 1].GetComponentInChildren<BoxCollider2D>().offset = _snakePart.GetComponentInChildren<BoxCollider2D>().offset;
+        _snakeParts[_snakeParts.Count - 1].GetComponentInChildren<BoxCollider2D>().size = _snakePart.GetComponentInChildren<BoxCollider2D>().size;
         SnakePartCreate(0);
+        _snakeParts[_snakeParts.Count - 1].GetComponentInChildren<SpriteRenderer>().sprite = _snakeTail.GetComponentInChildren<SpriteRenderer>().sprite;
+        _snakeParts[_snakeParts.Count - 1].GetComponentInChildren<BoxCollider2D>().offset = _snakeTail.GetComponentInChildren<BoxCollider2D>().offset;
+        _snakeParts[_snakeParts.Count - 1].GetComponentInChildren<BoxCollider2D>().size = _snakeTail.GetComponentInChildren<BoxCollider2D>().size;
     }
 
     private void CreationParts(int k)
@@ -120,7 +132,7 @@ public class Snake : MonoBehaviour
     {
         if (_stanTimer <= 0)
         {
-            if (_partsAddTimer >= 20)
+            if (_partsAddTimer >= _partAddTimerCap)
             {
                 AddToTail();
                 _partsAddTimer = 0;

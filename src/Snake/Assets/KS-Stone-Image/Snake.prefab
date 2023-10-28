@@ -128,11 +128,11 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.19999999}
-  m_Size: {x: 0.8, y: 0.9}
+  m_Offset: {x: 0, y: -0.22357428}
+  m_Size: {x: 0.6648408, y: 0.8528514}
   m_Direction: 0
 --- !u!1 &8483531743877480895
 GameObject:
@@ -211,8 +211,9 @@ MonoBehaviour:
   _headCol: {fileID: 0}
   <ColliderList>k__BackingField: []
   _snakePart: {fileID: 3611394809977644034, guid: fdbea1d1a1f18aa48a398dda5344d3e9, type: 3}
+  _snakeTail: {fileID: 0}
   _partsOfSnake: 2
-  _partsAddTimer: 0
+  _partAddTimerCap: 0
   _stanTimer: 0
 --- !u!70 &518441394719733480
 CapsuleCollider2D:
@@ -246,8 +247,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.19999999}
-  m_Size: {x: 0.8, y: 0.9}
+  m_Offset: {x: 0, y: -0.22357428}
+  m_Size: {x: 0.6648408, y: 0.8528514}
   m_Direction: 0
 --- !u!50 &378932339038272837
 Rigidbody2D:
