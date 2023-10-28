@@ -30,7 +30,7 @@ public class Portal : MonoBehaviour
         gameObject.layer = 11;
         _destinationPortal.gameObject.layer = 11;
         _destinationPortal.gameObject.gameObject.GetComponent<SpriteRenderer>().sprite = _altSprite;
-        player.transform.position = _destinationPortal.position + new Vector3(1f, 0f, 0f);
+        player.transform.position = _destinationPortal.position;
         yield return new WaitForSeconds(_cooldownDuration);
         _canTeleport = true;
         gameObject.layer = 0;

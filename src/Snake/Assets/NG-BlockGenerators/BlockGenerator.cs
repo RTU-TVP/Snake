@@ -57,7 +57,7 @@ public class BlockGenerator : MonoBehaviour
 
         foreach (Collider2D collider in colliders)
         {
-            if (collider.CompareTag("Bonus") || collider.CompareTag("Player") || collider.CompareTag("Snake"))
+            if (collider.CompareTag("Bonus") || collider.CompareTag("Player") || collider.CompareTag("Snake") || collider.CompareTag("Portal"))
             {
                 return true;
             }
