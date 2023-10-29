@@ -31,6 +31,19 @@ public class CustomMenu : MonoBehaviour
         _skinAppleButton.onClick.AddListener(appleSkin.Invoke);
         _skinPineappleButton.onClick.AddListener(pineappleSkin.Invoke);
         _skinAvocadoButton.onClick.AddListener(avocadoSkin.Invoke);
+
+        if (SpriteManager._skinNumber == 0)
+        {
+            SelectApple();
+        }
+        if (SpriteManager._skinNumber == 1)
+        {
+            SelectPineapple();
+        }
+        if (SpriteManager._skinNumber == 2)
+        {
+            SelectAvocado();
+        }
     }
 
 

@@ -36,7 +36,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -117, y: -250}
-  m_SizeDelta: {x: 50, y: 50}
+  m_SizeDelta: {x: 50, y: 52}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3460987933119704426
 CanvasRenderer:
@@ -611,7 +611,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 261, y: -248}
-  m_SizeDelta: {x: 60, y: 60}
+  m_SizeDelta: {x: 65, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3067162086167413012
 CanvasRenderer:
@@ -951,7 +951,6 @@ MonoBehaviour:
   _score: {fileID: 896566069814745717}
   _timer: {fileID: 8718653648337780253}
   _onDeathMenu: {fileID: 3732026351331384288}
-  _buttonSound: {fileID: 2185935530099262875, guid: 2da757406ca929943a946c02e019ab14, type: 3}
 --- !u!114 &5855239270854622204
 MonoBehaviour:
   m_ObjectHideFlags: 0
