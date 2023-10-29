@@ -57,7 +57,7 @@ public class Snake : MonoBehaviour
         ColliderList.Add(_headCol);
         CreationParts(1);
         _direction = new Vector2(-1, 0);
-        _turnCoef = 0.212f;
+        _turnCoef = 0.206f;
     }
 
     private void AddToTail()
@@ -65,7 +65,7 @@ public class Snake : MonoBehaviour
         TailChanger(_snakePart);
         SnakePartCreate(0);
         TailChanger(_snakeTail);
-        _turnCoef -= 0.005f;
+        //_turnCoef -= 0.01f;
     }
 
     private void TailChanger(GameObject prefab)
