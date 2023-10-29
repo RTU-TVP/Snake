@@ -228,7 +228,7 @@ MonoBehaviour:
   _turnSpriteRU: {fileID: 0}
   _turnSpriteLU: {fileID: 0}
   _partsOfSnake: 2
-  _partAddTimerCap: 5
+  _partAddTimerCap: 7
   _stanTimerCap: 3
   _classicMode: 0
 --- !u!50 &378932339038272837
