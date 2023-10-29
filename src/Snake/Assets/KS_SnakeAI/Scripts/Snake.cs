@@ -65,7 +65,7 @@ public class Snake : MonoBehaviour
         TailChanger(_snakePart);
         SnakePartCreate(0);
         TailChanger(_snakeTail);
-        _turnCoef -= 0.001f;
+        _turnCoef -= 0.005f;
     }
 
     private void TailChanger(GameObject prefab)
@@ -236,8 +236,8 @@ public class Snake : MonoBehaviour
         GameObject turn = null;
         turn = TurnImageRotation(rotateFrom, rotateTo, turn);
         while (waitForDisapearTurn<_snakeParts.Count * _turnCoef) {
-            if (_stanTimer <= 0 && Time.timeScale != 0) waitForDisapearTurn += 0.0012f;
-            yield return new WaitForSeconds(0.0001f);
+            if (_stanTimer <= 0 && Time.timeScale != 0) waitForDisapearTurn += 0.05f;
+            yield return new WaitForSeconds(0.05f);
 
         }
         Destroy(turn);
