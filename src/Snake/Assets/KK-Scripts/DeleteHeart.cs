@@ -10,7 +10,7 @@ public class DeleteHeart : MonoBehaviour
         Destroy(transform.GetChild(0).gameObject);
         if (transform.childCount == 1)
         {
-            SceneManager.LoadScene("MainMenu");
+            SceneManager.LoadScene("WinnerScene");
         }
     }
 }

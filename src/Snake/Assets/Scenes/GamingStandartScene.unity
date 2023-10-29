@@ -1169,8 +1169,8 @@ MonoBehaviour:
   - {fileID: 2599801296890071940, guid: a503b7571f152334382c7fdf956802b0, type: 3}
   - {fileID: 7368010808825463285, guid: 42879e59713dd7c41872a9322129a2c9, type: 3}
   - {fileID: 1147665882198445367, guid: 5af9a6b0f81c0ca4c8df42e4c2a027b1, type: 3}
-  _initialDelay: 2
-  _cooldown: 2
+  _initialDelay: 5
+  _cooldown: 5
 --- !u!4 &1096055870
 Transform:
   m_ObjectHideFlags: 0
@@ -1261,7 +1261,7 @@ PrefabInstance:
       objectReference: {fileID: 8728928746794743282, guid: 7d65b7bb3032b414496491868a6a06f7, type: 3}
     - target: {fileID: 1839830942021866057, guid: 47cb75037f761f447ad638bd7508ab42, type: 3}
       propertyPath: _stanTimerCap
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1839830942021866057, guid: 47cb75037f761f447ad638bd7508ab42, type: 3}
       propertyPath: _turnSpriteLD
@@ -1281,7 +1281,7 @@ PrefabInstance:
       objectReference: {fileID: 8728928746794743282, guid: 7eaf8dbb568a7644c9c232a7aea0c580, type: 3}
     - target: {fileID: 1839830942021866057, guid: 47cb75037f761f447ad638bd7508ab42, type: 3}
       propertyPath: _partAddTimerCap
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6359781486669948364, guid: 47cb75037f761f447ad638bd7508ab42, type: 3}
       propertyPath: m_IsTrigger
