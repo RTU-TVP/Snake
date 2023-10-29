@@ -1257,7 +1257,7 @@ PrefabInstance:
       objectReference: {fileID: 8728928746794743282, guid: 7eaf8dbb568a7644c9c232a7aea0c580, type: 3}
     - target: {fileID: 1839830942021866057, guid: 47cb75037f761f447ad638bd7508ab42, type: 3}
       propertyPath: _partAddTimerCap
-      value: 3
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3872283104022043938, guid: 47cb75037f761f447ad638bd7508ab42, type: 3}
       propertyPath: sounds.Array.size
