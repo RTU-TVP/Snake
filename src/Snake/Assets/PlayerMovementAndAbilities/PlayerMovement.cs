@@ -37,6 +37,7 @@ public class PlayerMovement : MonoBehaviour
         theoreticalPlayerSpeed = _basePlayerSpeed;
         realPlayerSpeed = 0;
         playerTransform = GetComponent<Transform>();
+        animator.SetBool("down", true);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
