@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 387172319098949030}
   - component: {fileID: -5387671293662517575}
   - component: {fileID: 2098498973258689838}
+  - component: {fileID: 7067363569553985147}
   m_Layer: 0
   m_Name: Portal
   m_TagString: Portal
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0a5f112c81a819f4aaa471f93d5304a7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ea84b4bc26accf64f89a143a88d41a51, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -101,7 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _destinationPortal: {fileID: 0}
   _cooldownDuration: 5
-  _sprite: {fileID: 21300000, guid: 0a5f112c81a819f4aaa471f93d5304a7, type: 3}
+  _sprite: {fileID: 21300000, guid: ea84b4bc26accf64f89a143a88d41a51, type: 3}
   _altSprite: {fileID: 21300000, guid: 61802ebb7f6b7ea4ea5a653c17947c84, type: 3}
 --- !u!114 &-5387671293662517575
 MonoBehaviour:
@@ -150,3 +151,30 @@ CircleCollider2D:
   m_Offset: {x: -0.01653111, y: 0.030700564}
   serializedVersion: 2
   m_Radius: 0.33468926
+--- !u!114 &7067363569553985147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9198774837631962704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9174063dafa7f1469b5d6fdca2609e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: teleportation
+    clip: {fileID: 8300000, guid: 09d5f76ae9bec9744b2caa58174ab690, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    spatialBlend: 0
+    source: {fileID: 0}
+  - name: active
+    clip: {fileID: 8300000, guid: c3cd0ef828bbb9549b2fa17b08909252, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    spatialBlend: 0
+    source: {fileID: 0}

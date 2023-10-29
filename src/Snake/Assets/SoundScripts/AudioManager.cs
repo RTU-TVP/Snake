@@ -20,7 +20,7 @@ public class AudioManager : MonoBehaviour
     }
     private void Start()
     {
-        
+        Play("SceneTheme");
     }
     public void Play(string name)
     {

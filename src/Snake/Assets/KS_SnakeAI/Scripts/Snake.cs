@@ -38,6 +38,7 @@ public class Snake : MonoBehaviour
     [SerializeField] private bool _classicMode=true;
     public PathFinder PathFinder { get; private set; }
     private Vector2 _direction;
+    AudioManager audioManager;
     public void CurrentPosSetter(Vector2 pos)
     {
         _currentNode.XYSet((int)pos.x, (int)pos.y);
@@ -130,6 +131,8 @@ public class Snake : MonoBehaviour
         if (collision.gameObject.tag == "Stone")
         {
             _stanTimer = _stanTimerCap;
+            if (_classicMode) audioManager.Play("bonk");
+            else audioManager.Play("bonkWithBirds");
             Destroy(collision.gameObject);
             if (_classicMode) FindFirstObjectByType<DeleteHeart>().DestroyHeart();
         }
@@ -266,5 +269,9 @@ public class Snake : MonoBehaviour
                 }
             }
         }
+    }
+    private void Start()
+    {
+        audioManager = GetComponent<AudioManager>();
     }
 }

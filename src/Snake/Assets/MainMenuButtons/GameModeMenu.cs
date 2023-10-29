@@ -5,6 +5,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameModeMenu : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
@@ -19,9 +20,10 @@ public class GameModeMenu : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     [SerializeField] GameObject _descriptionBackground;
     Action classicStart;
     Action infiniteStart;
-
+    AudioManager audioManager;
     private void Awake()
     {
+        audioManager = GetComponent<AudioManager>();
         _descriptionBackground.SetActive(false);
         infiniteStart = StartInfiniteMode;
         classicStart = StartClassicMode;
@@ -32,12 +34,12 @@ public class GameModeMenu : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         _classicDescription.SetActive(false);
         _infiniteDescription.SetActive(false);
     }
+    void InstantiateButtonSound()
+    {
+        Instantiate(Resources.Load("ButtonSoundPlayer"));
+    }
     private void Update()
     {
-        //if (EventSystem.current.currentSelectedGameObject == _classicModeButton)
-        //{
-        //    Debug.Log("selected");
-        //}
         if (Input.GetMouseButtonUp(0))
         {
             _playButton.interactable = true;
@@ -49,10 +51,14 @@ public class GameModeMenu : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     public void StartClassicMode()
     {
         Debug.Log("ClassicModeStart");
+        InstantiateButtonSound();
+        SceneManager.LoadScene("GamingStandartScene");
     }
     public void StartInfiniteMode()
     {
         Debug.Log("InfiniteModeStart");
+        InstantiateButtonSound();
+        SceneManager.LoadScene("GamingScene");
     }
     public void OnPointerEnter(PointerEventData eventData)
     {

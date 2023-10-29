@@ -156,6 +156,7 @@ GameObject:
   - component: {fileID: 1839830942021866057}
   - component: {fileID: 378932339038272837}
   - component: {fileID: 6359781486669948364}
+  - component: {fileID: 3872283104022043938}
   m_Layer: 10
   m_Name: Snake Hak
   m_TagString: Snake
@@ -222,6 +223,10 @@ MonoBehaviour:
   <ColliderList>k__BackingField: []
   _snakePart: {fileID: 3611394809977644034, guid: e20ac16803799244ab38dd56077e4fb3, type: 3}
   _snakeTail: {fileID: 3246289490912899609, guid: d1adf3096b2521a468623d1550b9f4d3, type: 3}
+  _turnSpriteRD: {fileID: 0}
+  _turnSpriteLD: {fileID: 0}
+  _turnSpriteRU: {fileID: 0}
+  _turnSpriteLU: {fileID: 0}
   _partsOfSnake: 2
   _partAddTimerCap: 5
   _stanTimerCap: 3
@@ -298,3 +303,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.9, y: 0.9}
   m_EdgeRadius: 0
+--- !u!114 &3872283104022043938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8483531743877480895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9174063dafa7f1469b5d6fdca2609e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: bonk
+    clip: {fileID: 8300000, guid: 056e96ae5ec99f34f81a9d71b18c117c, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    spatialBlend: 0
+    source: {fileID: 0}

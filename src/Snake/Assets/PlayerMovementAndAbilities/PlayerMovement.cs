@@ -25,8 +25,10 @@ public class PlayerMovement : MonoBehaviour
     IngameUI ingameUI;
     IEnumerator speedUp;
     IEnumerator shield;
+    AudioManager audioManager;
     void Start()
     {
+        audioManager = GetComponent<AudioManager>();
         animator = GetComponent<Animator>();
         ingameUI = GameObject.FindObjectOfType<IngameUI>().GetComponent<IngameUI>();
         SetAbility(Ability.no);
@@ -40,18 +42,22 @@ public class PlayerMovement : MonoBehaviour
         {
             if (abilityCheck._thisItem == Ability.speedBoost)
             {
+                audioManager.Play("abilityCollected");
                 SetAbility(Ability.speedBoost);
             }
             if (abilityCheck._thisItem == Ability.stone)
             {
+                audioManager.Play("abilityCollected");
                 SetAbility(Ability.stone);
             }
             if (abilityCheck._thisItem == Ability.shield)
             {
+                audioManager.Play("abilityCollected");
                 SetAbility(Ability.shield);
             }
             if (abilityCheck._thisItem == Ability.plusPoints)
             {
+                audioManager.Play("bonusPoints");
                 Points.AddPoints(100);
             }
             Destroy(collision.gameObject);
@@ -178,18 +184,21 @@ public class PlayerMovement : MonoBehaviour
                 if(speedUp != null) StopCoroutine(speedUp);
                 speedUp = SpeedUpAbilityTimer(_speedupBoostTime);
                 StartCoroutine(speedUp);
+                audioManager.Play($"speed{UnityEngine.Random.Range(1,4)}");
             }
             if(thisAbility == Ability.shield)
             {
                 if(shield != null) StopCoroutine(shield);
                 shield = ShieldAbilityTimer(_shieldTime);
                 StartCoroutine(shield);
+                audioManager.Play("shield");
             }
             if(thisAbility == Ability.stone)
             {
                 GameObject stone = Instantiate(_stonePrefab,null);
                 stone.GetComponent<Transform>().position = playerPosition;
                 stone.GetComponent<Stone>().throwDirection = currentDirection;
+                audioManager.Play("throwStone");
             }
             SetAbility(Ability.no);
         }

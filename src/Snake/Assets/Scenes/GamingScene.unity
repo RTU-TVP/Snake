@@ -202,10 +202,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 387172319098949030, guid: c5227a9688f81444b9ecf0e232d067f3, type: 3}
-      propertyPath: _sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: ea84b4bc26accf64f89a143a88d41a51, type: 3}
-    - target: {fileID: 387172319098949030, guid: c5227a9688f81444b9ecf0e232d067f3, type: 3}
       propertyPath: _destinationPortal
       value: 
       objectReference: {fileID: 1186981770}
@@ -249,10 +245,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6186779872147289894, guid: c5227a9688f81444b9ecf0e232d067f3, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: ea84b4bc26accf64f89a143a88d41a51, type: 3}
     - target: {fileID: 9198774837631962704, guid: c5227a9688f81444b9ecf0e232d067f3, type: 3}
       propertyPath: m_Name
       value: Portal 2
@@ -1267,6 +1259,26 @@ PrefabInstance:
       propertyPath: _partAddTimerCap
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 3872283104022043938, guid: 47cb75037f761f447ad638bd7508ab42, type: 3}
+      propertyPath: sounds.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3872283104022043938, guid: 47cb75037f761f447ad638bd7508ab42, type: 3}
+      propertyPath: sounds.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 43b888e074a6b3d4aa168a8422590228, type: 3}
+    - target: {fileID: 3872283104022043938, guid: 47cb75037f761f447ad638bd7508ab42, type: 3}
+      propertyPath: sounds.Array.data[1].name
+      value: bonkWithBirds
+      objectReference: {fileID: 0}
+    - target: {fileID: 3872283104022043938, guid: 47cb75037f761f447ad638bd7508ab42, type: 3}
+      propertyPath: sounds.Array.data[1].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3872283104022043938, guid: 47cb75037f761f447ad638bd7508ab42, type: 3}
+      propertyPath: sounds.Array.data[1].volume
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6359781486669948364, guid: 47cb75037f761f447ad638bd7508ab42, type: 3}
       propertyPath: m_IsTrigger
       value: 1
@@ -1361,6 +1373,7 @@ GameObject:
   - component: {fileID: 2003153760}
   - component: {fileID: 2003153759}
   - component: {fileID: 2003153758}
+  - component: {fileID: 2003153761}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1442,6 +1455,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2003153761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2003153757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9174063dafa7f1469b5d6fdca2609e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: SceneTheme
+    clip: {fileID: 8300000, guid: 869e5ba80769d444abbd692b976dbed6, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 1
+    spatialBlend: 1
+    source: {fileID: 0}
 --- !u!4 &2013957262 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4953890502244895862, guid: 12ce66c20c1eedb42abb1dffb5c4ea1b, type: 3}
@@ -1517,6 +1550,7 @@ GameObject:
   - component: {fileID: 4383111949167646344}
   - component: {fileID: 1494464496160358661}
   - component: {fileID: 8096491308359749650}
+  - component: {fileID: 8283837116230840145}
   m_Layer: 8
   m_Name: Avocado
   m_TagString: Player
@@ -1717,10 +1751,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 387172319098949030, guid: c5227a9688f81444b9ecf0e232d067f3, type: 3}
-      propertyPath: _sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: ea84b4bc26accf64f89a143a88d41a51, type: 3}
-    - target: {fileID: 387172319098949030, guid: c5227a9688f81444b9ecf0e232d067f3, type: 3}
       propertyPath: _destinationPortal
       value: 
       objectReference: {fileID: 1247183238}
@@ -1764,10 +1794,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6186779872147289894, guid: c5227a9688f81444b9ecf0e232d067f3, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: ea84b4bc26accf64f89a143a88d41a51, type: 3}
     - target: {fileID: 9198774837631962704, guid: c5227a9688f81444b9ecf0e232d067f3, type: 3}
       propertyPath: m_Name
       value: Portal 1
@@ -1815,6 +1841,68 @@ MonoBehaviour:
   _speedWhenBoosted: 10
   _shieldTime: 5
   _stonePrefab: {fileID: 5060311521449464370, guid: e0491950f31d63e45a1b5e4fc0d5bd9f, type: 3}
+--- !u!114 &8283837116230840145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6734641745552819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9174063dafa7f1469b5d6fdca2609e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: speed1
+    clip: {fileID: 8300000, guid: 8061e4264ee0ad84f8a2b79f41a87929, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    spatialBlend: 0
+    source: {fileID: 0}
+  - name: speed2
+    clip: {fileID: 8300000, guid: 0c75126cb080cdb4ca91c8fec4d9da05, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    spatialBlend: 0
+    source: {fileID: 0}
+  - name: speed3
+    clip: {fileID: 8300000, guid: 2c3f69f4265379345880cac5f7925106, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    spatialBlend: 0
+    source: {fileID: 0}
+  - name: shield
+    clip: {fileID: 8300000, guid: cf1f67f6fba1ac84a821e29c6c3ca5fc, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    spatialBlend: 0
+    source: {fileID: 0}
+  - name: bonusPoints
+    clip: {fileID: 8300000, guid: 58ca9abe0accd2e4b9a1fbdc1acac1ea, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    spatialBlend: 0
+    source: {fileID: 0}
+  - name: abilityCollected
+    clip: {fileID: 8300000, guid: 7ed657c10e7c2bd4f9c4a00c547ca7b3, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    spatialBlend: 0
+    source: {fileID: 0}
+  - name: throwStone
+    clip: {fileID: 8300000, guid: 0b347770db1ec7a4e9cc86e03a8d95fd, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    spatialBlend: 0
+    source: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

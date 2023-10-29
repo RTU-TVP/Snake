@@ -14,8 +14,10 @@ public class MenuButtons : MonoBehaviour
     Action play;
     Action choose;
     Action exit;
+    AudioManager audioManager;
     private void Awake()
     {
+        audioManager = GetComponent<AudioManager>();
         _modeChooseCanvas.SetActive(false);
         _modeChooseWearCanvas.SetActive(false);
         play = PlayButton;
@@ -30,6 +32,7 @@ public class MenuButtons : MonoBehaviour
     }
     public void ExitButton()
     {
+        audioManager.Play($"Button{UnityEngine.Random.Range(1,5)}");
         Debug.Log("exit");
         Application.Quit();
     }
@@ -39,7 +42,7 @@ public class MenuButtons : MonoBehaviour
         _playButton.interactable = false;
         _chooseButton.interactable = false;
         _exitButton.interactable = false;
-
+        audioManager.Play($"Button{UnityEngine.Random.Range(1, 5)}");
     }
 
     public void ChooseButton()
@@ -48,6 +51,6 @@ public class MenuButtons : MonoBehaviour
         _playButton.interactable = false;
         _chooseButton.interactable = false;
         _exitButton.interactable = false;
-
+        audioManager.Play($"Button{UnityEngine.Random.Range(1, 5)}");
     }
 }

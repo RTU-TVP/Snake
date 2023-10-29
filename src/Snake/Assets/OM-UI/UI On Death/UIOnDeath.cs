@@ -16,12 +16,15 @@ public class UIOnDeath : MonoBehaviour
     IngameUI ingameMenu;
     Action restart;
     Action menu;
+    AudioManager audioManager;
     void Awake()
     {
         ingameMenu = GameObject.FindObjectOfType<IngameUI>();
         SetTimer();
         SetActionToRestart(RestartLevel);
         SetActionToMenu(GoToMenu);
+        audioManager = GameObject.FindObjectOfType<Camera>().GetComponent<AudioManager>();
+        audioManager.SoftStop("SceneTheme");
     }
     void Update()
     {
@@ -59,11 +62,17 @@ public class UIOnDeath : MonoBehaviour
     }
     void RestartLevel()
     {
+        InstantiateButtonSound();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Time.timeScale = 1f;
     }
     void GoToMenu()
     {
+        InstantiateButtonSound();
         SceneManager.LoadScene("MainMenu");
+    }
+    void InstantiateButtonSound()
+    {
+        Instantiate(Resources.Load("ButtonSoundPlayer"));
     }
 }
