@@ -37,7 +37,14 @@ public class SnakePart : MonoBehaviour
         transform.position = new Vector3(CurrentNode.X * _cellSize + _cellSize * 0.5f+ pos.x, CurrentNode.Y * _cellSize + _cellSize * 0.5f+ pos.y, 0);
         transform.localScale = new Vector3( _cellSize, _cellSize, 0f);
     }
-    
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Bonus")
+        {
+            Destroy(collision.gameObject);
+        }
+    }
 
     public void SetTarget(PathNode target)
     {

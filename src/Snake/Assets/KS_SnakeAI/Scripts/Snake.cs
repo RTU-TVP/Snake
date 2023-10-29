@@ -138,6 +138,13 @@ public class Snake : MonoBehaviour
             Destroy(collision.gameObject);
         }
     }
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Bonus")
+        {
+            Destroy(collision.gameObject);
+        }
+    }
     private void FixedUpdate()
     {
         if (_stanTimer <= 0)
@@ -220,7 +227,7 @@ public class Snake : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         GameObject turn = null;
         turn = TurnImageRotation(rotateFrom, rotateTo, turn);
-        yield return new WaitForSeconds(_snakeParts.Count * 0.21f);
+        yield return new WaitForSeconds(_snakeParts.Count * 0.212f);
         Destroy(turn);
     }
 
