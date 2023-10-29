@@ -139,6 +139,7 @@ public class Snake : MonoBehaviour
             else audioManager.Play("bonkWithBirds");
             Destroy(collision.gameObject);
             if (_classicMode) FindFirstObjectByType<DeleteHeart>().DestroyHeart();
+            Points.AddPoints(250);
         }
         if (collision.gameObject.tag == "Bonus")
         {
