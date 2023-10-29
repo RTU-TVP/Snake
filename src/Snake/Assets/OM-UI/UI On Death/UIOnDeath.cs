@@ -60,6 +60,7 @@ public class UIOnDeath : MonoBehaviour
     void RestartLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Time.timeScale = 1f;
     }
     void GoToMenu()
     {

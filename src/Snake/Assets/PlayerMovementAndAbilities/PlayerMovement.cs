@@ -230,6 +230,7 @@ public class PlayerMovement : MonoBehaviour
         loseMenu.GetComponent<UIOnDeath>().SetScore(Points.GetPoints().ToString());
         if (Points.GetPoints() > PlayerPrefs.GetInt("bestScore")) PlayerPrefs.SetInt("bestScore",Points.GetPoints());
         Destroy(gameObject);
+        Time.timeScale = 0f;
     }
     void AnimationSpeed()
     {
