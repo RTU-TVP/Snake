@@ -50,6 +50,7 @@ public class CustomMenu : MonoBehaviour
         _backgroundApple.color = new Color32(148, 250, 171, 255);
         _backgroundPineapple.color = new Color32(255, 155, 155, 255);
         _backgroundAvocado.color = new Color32(255, 155, 155, 255);
+        SpriteManager._skinNumber = 0;
         audioManager.Play($"Button{UnityEngine.Random.Range(1,5)}");
         Debug.Log("SelectApple");
     }
@@ -58,6 +59,7 @@ public class CustomMenu : MonoBehaviour
         _backgroundPineapple.color = new Color32(148, 250, 171, 255);
         _backgroundApple.color = new Color32(255, 155, 155, 255);
         _backgroundAvocado.color = new Color32(255, 155, 155, 255);
+        SpriteManager._skinNumber = 1;
         audioManager.Play($"Button{UnityEngine.Random.Range(1, 5)}");
         Debug.Log("SelectPineapple");
     }
@@ -67,6 +69,7 @@ public class CustomMenu : MonoBehaviour
         _backgroundAvocado.color = new Color32(148, 250, 171, 255);
         _backgroundPineapple.color = new Color32(255, 155, 155, 255);
         _backgroundApple.color = new Color32(255, 155, 155, 255);
+        SpriteManager._skinNumber = 2;
         audioManager.Play($"Button{UnityEngine.Random.Range(1,5)}");
         Debug.Log("SelectAvocado");
     }

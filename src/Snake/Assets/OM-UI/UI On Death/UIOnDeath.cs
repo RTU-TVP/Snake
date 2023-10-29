@@ -70,6 +70,7 @@ public class UIOnDeath : MonoBehaviour
     {
         InstantiateButtonSound();
         SceneManager.LoadScene("MainMenu");
+        Time.timeScale = 1f;
     }
     void InstantiateButtonSound()
     {
