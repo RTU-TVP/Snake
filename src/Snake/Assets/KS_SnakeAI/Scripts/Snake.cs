@@ -246,20 +246,20 @@ public class Snake : MonoBehaviour
     private GameObject TurnImageRotation(Vector2 rotateFrom, Vector2 rotateTo, GameObject turn)
     {
         if ((rotateFrom == Vector2.right && rotateTo == Vector2.down) || (rotateFrom == Vector2.up && rotateTo == Vector2.left))
-            turn = Instantiate(_turnSpriteRD, new Vector3(_currentNode.X + 0.5f, _currentNode.Y + 0.5f,-2f),
+            turn = Instantiate(_turnSpriteRD, new Vector3(_currentNode.X + 0.5f, _currentNode.Y + 0.5f,-0.1f),
                 Quaternion.identity);
         
         else if ((rotateFrom == Vector2.left && rotateTo == Vector2.down) || (rotateFrom == Vector2.up && rotateTo == Vector2.right))
-            turn = Instantiate(_turnSpriteLD, new Vector3(_currentNode.X + 0.5f, _currentNode.Y + 0.5f,-2f),
+            turn = Instantiate(_turnSpriteLD, new Vector3(_currentNode.X + 0.5f, _currentNode.Y + 0.5f,-0.1f),
                 Quaternion.identity);
         
         else if ((rotateFrom == Vector2.right && rotateTo == Vector2.up) || (rotateFrom == Vector2.down && rotateTo == Vector2.left))
-            turn = Instantiate(_turnSpriteRU, new Vector3(_currentNode.X + 0.5f, _currentNode.Y + 0.5f,-2f),
+            turn = Instantiate(_turnSpriteRU, new Vector3(_currentNode.X + 0.5f, _currentNode.Y + 0.5f,-0.1f),
                 Quaternion.identity);
         
         
         else if ((rotateFrom == Vector2.left && rotateTo == Vector2.up) || (rotateFrom == Vector2.down && rotateTo == Vector2.right))
-            turn = Instantiate(_turnSpriteLU, new Vector3(_currentNode.X + 0.5f, _currentNode.Y + 0.5f, -2f),
+            turn = Instantiate(_turnSpriteLU, new Vector3(_currentNode.X + 0.5f, _currentNode.Y + 0.5f, -0.1f),
                 Quaternion.identity);
         
         
