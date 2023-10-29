@@ -1440,6 +1440,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5227a9688f81444b9ecf0e232d067f3, type: 3}
+--- !u!1 &1551606530 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8938048219209301159, guid: 3c31e95bbc30f534983bf8bf0b4acf28, type: 3}
+  m_PrefabInstance: {fileID: 1675184576}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1569857143
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1562,9 +1567,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7998565477745128557, guid: 3c31e95bbc30f534983bf8bf0b4acf28, type: 3}
-      propertyPath: _stonePrefab
+      propertyPath: _shieldUsedSprite
       value: 
-      objectReference: {fileID: 5060311521449464370, guid: e0491950f31d63e45a1b5e4fc0d5bd9f, type: 3}
+      objectReference: {fileID: 1551606530}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

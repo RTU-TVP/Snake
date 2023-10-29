@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float _speedWhenBoosted;
     [SerializeField] int _shieldTime;
     [SerializeField] GameObject _stonePrefab;
+    [SerializeField] GameObject _shieldUsedSprite;
     Animator animator;
     float realPlayerSpeed;
     float theoreticalPlayerSpeed;
@@ -26,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator speedUp;
     IEnumerator shield;
     AudioManager audioManager;
+    bool isShieldActive = false;
     void Start()
     {
         audioManager = GetComponent<AudioManager>();
@@ -101,6 +103,14 @@ public class PlayerMovement : MonoBehaviour
         if(playerCellCoordinates != null)
         {
             PlayerCellCoordinates.SetPlayerCellCoordinates(playerCellCoordinates);
+        }
+        if(isShieldActive)
+        {
+            _shieldUsedSprite.SetActive(true);
+        }
+        else
+        {
+            _shieldUsedSprite.SetActive(false);
         }
     }
     void ChooseNextDirection()
@@ -219,8 +229,10 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator ShieldAbilityTimer(int time)
     {
         gameObject.layer = 6;
+        isShieldActive = true;
         yield return new WaitForSeconds(time);
         gameObject.layer = 8;
+        isShieldActive = false;
         yield break;
     }
     IEnumerator BarrierDisappear(GameObject go)
