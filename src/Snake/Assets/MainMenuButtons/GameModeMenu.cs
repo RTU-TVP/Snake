@@ -87,5 +87,4 @@ public class GameModeMenu : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         _classicDescription.gameObject.SetActive(false);
         _infiniteDescription.gameObject.SetActive(false);
     }
-
 }
