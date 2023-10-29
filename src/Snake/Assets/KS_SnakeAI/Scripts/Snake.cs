@@ -170,7 +170,7 @@ public class Snake : MonoBehaviour
                     if (_nextNode is null) {
                         PathNode neighbour = FindNeighbour();
 
-                        if (neighbour is null) Destroy(gameObject);
+                        if (neighbour is null) return;
                         else _nextNode = neighbour;
                     }
 
