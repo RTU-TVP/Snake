@@ -38,7 +38,9 @@ public class Snake : MonoBehaviour
     [SerializeField] private bool _classicMode=true;
     public PathFinder PathFinder { get; private set; }
     private Vector2 _direction;
+    private float _turnCoef;
     AudioManager audioManager;
+
     public void CurrentPosSetter(Vector2 pos)
     {
         _currentNode.XYSet((int)pos.x, (int)pos.y);
@@ -55,6 +57,7 @@ public class Snake : MonoBehaviour
         ColliderList.Add(_headCol);
         CreationParts(1);
         _direction = new Vector2(-1, 0);
+        _turnCoef = 0.212f;
     }
 
     private void AddToTail()
@@ -62,6 +65,7 @@ public class Snake : MonoBehaviour
         TailChanger(_snakePart);
         SnakePartCreate(0);
         TailChanger(_snakeTail);
+        _turnCoef -= 0.0015f;
     }
 
     private void TailChanger(GameObject prefab)
@@ -227,10 +231,14 @@ public class Snake : MonoBehaviour
 
     private IEnumerator SpawnTurnSprite(Vector2 rotateFrom, Vector2 rotateTo)
     {
+        float waitForDisapearTurn = 0;
         yield return new WaitForSeconds(0.1f);
         GameObject turn = null;
         turn = TurnImageRotation(rotateFrom, rotateTo, turn);
-        yield return new WaitForSeconds(_snakeParts.Count * 0.212f);
+        while (waitForDisapearTurn<_snakeParts.Count * _turnCoef) {
+            if (_stanTimer <= 0 && Time.timeScale != 0) waitForDisapearTurn += 0.001f;
+            yield return null;
+        }
         Destroy(turn);
     }
 
