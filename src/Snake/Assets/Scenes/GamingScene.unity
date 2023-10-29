@@ -1084,8 +1084,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToSpawn: {fileID: 596916158764037828, guid: 12ce66c20c1eedb42abb1dffb5c4ea1b, type: 3}
-  spawnInterval: 2.5
-  despawnDelay: 8
+  spawnInterval: 2.2
+  despawnDelay: 10
   _minX: 0.5
   _maxX: 15.5
   _minY: 0.5

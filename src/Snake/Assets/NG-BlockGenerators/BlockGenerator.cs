@@ -24,9 +24,6 @@ public class BlockGenerator : MonoBehaviour
 
     private IEnumerator Start()
     {
-        SpawnObject();
-        SpawnObject();
-
         while (true)
         {
             SpawnObject();
