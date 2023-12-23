@@ -1,43 +1,43 @@
-Eng | [Rus](Resources/Localization%20Readme/README_rus.md)
+Rus | [Eng](Resources/Localization%20Readme/README_eng.md)
 
-# Unity project - Bullseye
+# Unity проект - Яблочко
 
-This game project was created as part of a **three-day hackathon** and later refined.
+Этот проект игры был создан в рамках **трехдневного хакатона** и позднее доработан.
 
-## Technologies
+## Технологии
 
-* Engine: **Unity**
-* Programming language: **C#**
-* Version control system: **Git**
-* Snake Artificial Intelligence: **Algorithm A***
-* Design of user interface and location elements: **Photoshop**, **Illustrator**, **Krita**
+* Движок: **Unity**
+* Язык программирования: **C#**
+* Система контроля версий: **Git**
+* Искусственный интеллект змейки: **Алгоритм A***
+* Дизайн пользовательского интерфейса и элементов локаций: **Photoshop**, **Illustrator**, **Krita**
 
-## Platform
+## Платформа
 
-*Windows
+* Windows
 
-## Game description
+## Описание игры
 
-The game is based on the well-known game “Snake” with one important difference - the player plays for the bullseye and runs away from the snake.
-Various bonuses appear on the map to help with this.
+Игра основана на всем известной игре «Змейка» с одним важным отличием — игрок играет за яблочко и убегает от змеи.
+На карте появляются различные бонусы, чтобы помочь в этом.
 
-There are two game modes: **normal** and **endless**.
+Присутствуют два режима игры: **обычный** и **бесконечный**.
 
-In the normal mode of the game you need to use stones to kill the snake and win, and in the endless mode you need to survive as much as possible
-longer.
+В обычном режиме игры требуется использовать камни, чтобы убить змею и победить, а бесконечном — выжить как можно
+дольше.
 
-## Screenshots
+## Скриншоты
 
-### Main menu:
+### Главное меню:
 ![MainMenu](Resources/Screenshots/MainMenu.jpg)
 
-### Choice of appearance:
+### Выбор внешнего вида:
 ![SelectingAnAppearance](Resources/Screenshots/SelectingAnAppearance.jpg)
 
-### Game mode information:
+### Информация о режиме игры:
 ![GameModeInformation](Resources/Screenshots/GameModeInformation.jpg)
 
-### Game mode selection:
+### Выбор режима игры:
 ![ModeSelection](Resources/Screenshots/ModeSelection.jpg)
 
 ### Gameplay in normal mode:
